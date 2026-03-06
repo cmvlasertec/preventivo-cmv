@@ -1221,15 +1221,19 @@ function applyParams(params) {
 
 async function gsCall(body) {
   if (!GS_URL) return null;
-  return new Promise((resolve) => {
-    const cbName = 'gsCallback_' + Date.now();
-    const params = new URLSearchParams({ action: body.action, data: JSON.stringify(body.data), callback: cbName });
-    const script = document.createElement('script');
-    window[cbName] = (data) => { delete window[cbName]; document.body.removeChild(script); resolve(data); };
-    script.onerror = () => { delete window[cbName]; document.body.removeChild(script); resolve(null); };
-    script.src = GS_URL + '?' + params.toString();
-    document.body.appendChild(script);
-  });
+  try {
+    const r = await fetch(GS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    // no-cors non restituisce body, ma il salvataggio avviene comunque
+    return { ok: true };
+  } catch(e) {
+    console.warn('Google Sheets sync fallito:', e);
+    return null;
+  }
 }
 async function gsGet(action) {
   if (!GS_URL) return null;
