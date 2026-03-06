@@ -1,0 +1,3062 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PreventivoPro — Metalmeccanica</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f7f8fc;
+  --white: #ffffff;
+  --border: #e3e6ef;
+  --accent: #2563eb;
+  --accent-light: #eff4ff;
+  --accent-dark: #1d4ed8;
+  --text: #111827;
+  --text2: #374151;
+  --muted: #9ca3af;
+  --success: #059669;
+  --success-bg: #ecfdf5;
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
+  --warn: #d97706;
+  --warn-bg: #fffbeb;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 16px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; font-size: 14px; line-height: 1.5; }
+.hidden { display: none !important; }
+
+/* HEADER */
+.app-header { background: var(--white); border-bottom: 1px solid var(--border); height: 60px; display: flex; align-items: center; padding: 0 28px; gap: 16px; position: sticky; top: 0; z-index: 200; box-shadow: var(--shadow-sm); }
+.logo { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; cursor: pointer; user-select: none; }
+.logo em { color: var(--text); font-style: normal; }
+.header-breadcrumb { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+.header-breadcrumb .sep { color: var(--border); }
+.header-breadcrumb .crumb { color: var(--text2); font-weight: 500; }
+.header-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 18px; border-radius: var(--radius-sm); border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; transition: all 0.15s; white-space: nowrap; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dark); box-shadow: 0 2px 8px rgba(37,99,235,0.35); }
+.btn-secondary { background: var(--white); color: var(--text2); border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+.btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 8px 14px; }
+.btn-ghost:hover { background: var(--bg); color: var(--text); }
+.btn-danger { background: var(--danger-bg); color: var(--danger); border: 1px solid #fecaca; }
+.btn-danger:hover { background: var(--danger); color: #fff; }
+.btn-sm { padding: 7px 14px; font-size: 12px; }
+.btn-icon { background: none; border: none; cursor: pointer; color: var(--muted); padding: 6px; border-radius: 6px; transition: all 0.15s; font-size: 15px; }
+.btn-icon:hover { background: var(--danger-bg); color: var(--danger); }
+.btn-add { background: transparent; border: 1.5px dashed var(--border); color: var(--muted); width: 100%; justify-content: center; margin-top: 10px; border-radius: var(--radius-sm); }
+.btn-add:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+/* ========== HOME ========== */
+#page-home { min-height: calc(100vh - 60px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
+.home-hero { text-align: center; margin-bottom: 48px; }
+.home-icon { width: 76px; height: 76px; background: var(--accent-light); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin: 0 auto 24px; box-shadow: 0 0 0 10px rgba(37,99,235,0.06); }
+.home-title { font-family: 'Sora', sans-serif; font-size: 40px; font-weight: 800; color: var(--text); letter-spacing: -1.5px; margin-bottom: 14px; }
+.home-title span { color: var(--accent); }
+.home-sub { font-size: 16px; color: var(--muted); max-width: 400px; margin: 0 auto; line-height: 1.7; }
+.home-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.home-btn { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 230px; padding: 34px 24px; background: var(--white); border: 1.5px solid var(--border); border-radius: 18px; cursor: pointer; transition: all 0.2s; color: var(--text); box-shadow: var(--shadow-sm); }
+.home-btn:hover { border-color: #a5b4fc; box-shadow: 0 8px 28px rgba(37,99,235,0.13); transform: translateY(-4px); }
+.home-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.home-btn.primary:hover { background: var(--accent-dark); box-shadow: 0 8px 28px rgba(37,99,235,0.38); }
+.hbi { width: 54px; height: 54px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+.home-btn.primary .hbi { background: rgba(255,255,255,0.22); }
+.home-btn:not(.primary) .hbi { background: var(--accent-light); }
+.hbl { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px; text-align: center; }
+.hbd { font-size: 12px; text-align: center; opacity: 0.6; }
+.home-stats { margin-top: 48px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.stat-chip { background: var(--white); border: 1px solid var(--border); border-radius: 50px; padding: 8px 18px; font-size: 13px; color: var(--text2); box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 8px; }
+.stat-chip strong { color: var(--accent); font-weight: 700; }
+
+/* ========== SAVED ========== */
+#page-saved { padding: 32px; max-width: 1100px; margin: 0 auto; }
+#page-laser { padding: 32px; max-width: 1100px; margin: 0 auto; }
+.page-top { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+.page-title { font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 800; flex: 1; letter-spacing: -0.5px; }
+.search-bar { display: flex; align-items: center; background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 0 12px; gap: 8px; width: 300px; transition: border-color 0.2s; box-shadow: var(--shadow-sm); }
+.search-bar:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+.search-bar input { border: none; outline: none; background: transparent; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text); flex: 1; padding: 10px 0; }
+.search-bar input::placeholder { color: var(--muted); }
+.si { color: var(--muted); font-size: 15px; }
+.sc { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 14px; padding: 2px; transition: color 0.15s; }
+.sc:hover { color: var(--text); }
+.quotes-grid { display: flex; flex-direction: column; gap: 0; border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--white); box-shadow: var(--shadow-sm); }
+.qcard { background: var(--white); border-bottom: 1px solid var(--border); overflow: hidden; transition: background 0.15s; cursor: pointer; display: flex; align-items: center; }
+.qcard:last-child { border-bottom: none; }
+.qcard:hover { background: #f8faff; }
+.qcard-top { padding: 11px 20px; display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; border-bottom: none; }
+.qdot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.d-draft { background: var(--muted); }
+.d-sent { background: var(--accent); }
+.d-accepted { background: var(--success); }
+.qcard-info { flex: 1; min-width: 0; display: flex; align-items: center; gap: 20px; }
+.qcard-name { font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 150px; max-width: 220px; }
+.qcard-client { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.qcard-code { font-size: 11px; color: var(--muted); font-family: monospace; white-space: nowrap; }
+.badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 50px; }
+.b-draft { background: #f3f4f6; color: var(--muted); }
+.b-sent { background: var(--accent-light); color: var(--accent); }
+.b-accepted { background: var(--success-bg); color: var(--success); }
+.qcard-bottom { padding: 11px 20px; display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.qcard-total { font-size: 14px; font-weight: 800; color: var(--accent); white-space: nowrap; min-width: 80px; text-align: right; }
+.qcard-meta { font-size: 11px; color: var(--muted); white-space: nowrap; }
+.qcard-actions { display: flex; gap: 6px; }
+.empty-box { grid-column: 1/-1; text-align: center; padding: 72px 20px; color: var(--muted); }
+.empty-box-icon { font-size: 52px; margin-bottom: 16px; }
+.empty-box h3 { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+
+/* ========== EDITOR ========== */
+#page-editor { display: flex; flex-direction: column; height: calc(100vh - 60px); overflow-y: auto; }
+.editor-toolbar { background: var(--white); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 50; }
+.editor-name { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 700; border: none; outline: none; background: transparent; color: var(--text); flex: 1; min-width: 200px; border-bottom: 2px solid transparent; transition: border-color 0.2s; padding-bottom: 2px; }
+.editor-name:focus { border-bottom-color: var(--accent); }
+.save-pill { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--warn); font-weight: 600; background: var(--warn-bg); padding: 6px 14px; border-radius: 50px; border: 1px solid #fde68a; }
+.save-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--warn); animation: pulse 1.5s infinite; }
+.saved-pill { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--success); font-weight: 600; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.editor-body { flex: 1; padding: 24px; }
+.editor-grid { display: grid; grid-template-columns: 1fr 360px; gap: 20px; align-items: start; max-width: 1300px; margin: 0 auto; }
+
+/* CARDS */
+.card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); margin-bottom: 16px; overflow: hidden; }
+.card-head { padding: 14px 20px; display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; transition: background 0.15s; }
+.card-head:hover { background: #fafbff; }
+.chi { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+.ci-info{background:#eff6ff;} .ci-mat{background:#fff7ed;} .ci-lab{background:#f0fdf4;} .ci-mac{background:#fdf4ff;} .ci-treat{background:#fdf2ff;} .ci-ext{background:#fff1f2;} .ci-sum{background:#f0fdf4;}
+.param-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:24px 20px;cursor:pointer;transition:all 0.15s;box-shadow:var(--shadow-sm);}
+.param-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 16px rgba(37,99,235,0.1);}
+.param-card-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px;}
+.param-card-title{font-weight:700;font-size:15px;color:var(--text);margin-bottom:4px;}
+.param-card-desc{font-size:12px;color:var(--muted);line-height:1.4;}
+.params-subpage-header{display:flex;align-items:center;gap:12px;margin-bottom:28px;padding-bottom:20px;border-bottom:2px solid var(--border);}
+.params-subpage-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.params-subpage-title{font-size:20px;font-weight:800;margin:0;letter-spacing:-0.4px;}
+.params-table-wrap{background:var(--white);border:1.5px solid var(--border);border-radius:12px;overflow:hidden;}
+.params-table-head{background:var(--accent-light);padding:12px 20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);display:grid;gap:12px;}
+.params-table-row{display:grid;gap:12px;padding:10px 20px;border-bottom:1px solid var(--border);align-items:center;transition:background 0.1s;}
+.params-table-row:last-child{border-bottom:none;}
+.params-table-row:hover{background:var(--bg);}
+.params-table-row span{font-size:13px;font-weight:500;color:var(--text);}
+.params-hint{font-size:12px;color:var(--muted);margin-top:14px;padding-left:4px;}
+.card-head-title { font-weight: 700; font-size: 14px; flex: 1; color: var(--accent); }
+.card-head-total { font-size: 14px; font-weight: 700; color: var(--accent); }
+.chevron { color: var(--muted); font-size: 11px; transition: transform 0.2s; }
+.chevron.open { transform: rotate(180deg); }
+.card-body { padding: 18px 20px; border-top: 1px solid var(--border); }
+
+/* FORM */
+.fg { display: grid; gap: 14px; margin-bottom: 14px; }
+.g2{grid-template-columns:1fr 1fr;} .g3{grid-template-columns:1fr 1fr 1fr;} .g4{grid-template-columns:1fr 1fr 1fr 1fr;}
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
+input[type=text],input[type=number],input[type=date],select,textarea { background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-family: 'Inter', sans-serif; font-size: 13px; padding: 9px 12px; width: 100%; transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+input:focus,select:focus,textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+select { cursor: pointer; }
+textarea { resize: vertical; min-height: 72px; }
+.uw { position: relative; }
+.uw input { padding-right: 38px; }
+.un { position: absolute; right: 11px; top: 50%; transform: translateY(-50%); font-size: 11px; color: var(--muted); pointer-events: none; font-weight: 700; }
+
+/* TABLE */
+.tbl { width: 100%; border-collapse: collapse; }
+.tbl th { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); padding: 8px 6px 10px; text-align: left; border-bottom: 1.5px solid var(--border); }
+.tbl td { padding: 5px 3px; vertical-align: middle; }
+.tbl td input, .tbl td select { padding: 7px 9px; font-size: 12px; }
+.tbl tr:hover td { background: rgba(37,99,235,0.02); }
+.tr-tot { font-size: 13px; font-weight: 700; color: var(--accent); text-align: right; white-space: nowrap; padding: 5px 8px; }
+
+/* SUMMARY */
+.sum-panel { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 22px; position: sticky; top: 16px; }
+.sum-title { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 800; margin-bottom: 18px; letter-spacing: -0.3px; }
+.sum-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.sum-row:last-child { border-bottom: none; }
+.sum-lbl { color: var(--muted); }
+.sum-val { font-weight: 600; font-family: monospace; font-size: 13px; }
+.sum-divider { border: none; border-top: 2px solid var(--border); margin: 2px 0; }
+.sum-total-row { padding: 14px 0 2px; }
+.sum-total-lbl { font-weight: 800; font-size: 14px; }
+.sum-total-val { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; }
+.sum-unit-box { background: var(--accent-light); border-radius: 9px; padding: 11px 14px; margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+.sum-unit-lbl { font-size: 12px; color: var(--accent); font-weight: 600; }
+.sum-unit-val { font-size: 16px; font-weight: 800; color: var(--accent); }
+
+
+.img-drop-zone { border: 2px dashed var(--border); border-radius: 10px; cursor: pointer; transition: all 0.2s; background: #fafbff; min-height: 180px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+.img-drop-zone:hover, .img-drop-zone.drag-over { border-color: var(--accent); background: var(--accent-light); }
+.img-drop-zone.has-image { border-style: solid; padding: 0; }
+.fg.g2 { grid-template-columns: repeat(2, 1fr); }
+
+.qcard.delete-mode { cursor: pointer; }
+.qcard.selected { border-color: var(--accent); background: var(--accent-light); box-shadow: 0 0 0 2px rgba(37,99,235,0.2); }
+.qcard.export-selected { border-color: #059669; background: #f0fdf4; box-shadow: 0 0 0 2px rgba(5,150,105,0.2); cursor:pointer; }
+.qcard.delete-mode:hover { border-color: #f87171; box-shadow: 0 4px 16px rgba(220,38,38,0.1); transform: translateY(-2px); }
+.qcard.delete-mode.selected:hover { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(37,99,235,0.3); }
+.qcard-check { position: absolute; top: 12px; right: 12px; }
+.qcard-top { position: relative; }
+.check-circle { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); background: var(--white); display: flex; align-items: center; justify-content: center; font-size: 12px; color: transparent; transition: all 0.15s; }
+.check-circle.checked { background: var(--accent); border-color: var(--accent); color: #fff; }
+.delete-action-bar { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 14px 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow-sm); flex-wrap: wrap; }
+.delete-action-bar .bar-label { font-size: 13px; color: var(--muted); flex: 1; }
+.delete-action-bar .bar-label strong { color: var(--text); }
+
+
+/* LABOR RATES DROPDOWN */
+.labor-rates-dropdown { display:none; position:absolute; top:calc(100% + 4px); left:0; z-index:200; background:var(--white); border:1.5px solid var(--border); border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,0.12); padding:16px 20px; min-width:320px; }
+.labor-rates-dropdown.open { display:block; }
+.labor-rates-dropdown h4 { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.7px; color:var(--muted); margin-bottom:12px; }
+.labor-rate-row { display:flex; align-items:center; gap:10px; padding:5px 0; border-bottom:1px solid var(--border); }
+.labor-rate-row:last-of-type { border-bottom:none; }
+.labor-rate-label { font-size:13px; flex:1; color:var(--text); }
+.labor-rate-row input { width:80px; padding:6px 8px; font-size:12px; border:1.5px solid var(--border); border-radius:6px; text-align:right; }
+.labor-rate-row .un { font-size:11px; color:var(--muted); }
+.labor-rates-title { cursor:pointer; user-select:none; display:flex; align-items:center; gap:6px; }
+.labor-rates-title:hover { color:var(--accent); }
+.labor-rates-title .arrow { font-size:10px; transition:transform 0.2s; }
+.labor-rates-title.open .arrow { transform:rotate(180deg); }
+.labor-card-head-wrap { position:relative; }
+
+#toast { position: fixed; bottom: 24px; right: 24px; background: var(--success); color: #fff; font-size: 13px; font-weight: 600; padding: 13px 22px; border-radius: 10px; z-index: 9999; transition: opacity 0.4s; box-shadow: 0 4px 16px rgba(5,150,105,0.35); pointer-events: none; opacity: 0; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+@media print {
+  #page-home,#page-saved,.app-header,.editor-toolbar,.sum-panel { display: none !important; }
+  .editor-body { padding: 0; overflow: visible; height: auto; }
+  #page-editor { height: auto; }
+  .editor-grid { grid-template-columns: 1fr; }
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="logo" onclick="goHome()">Preventivo<em>Pro</em></div>
+  <div class="header-breadcrumb" id="breadcrumb"></div>
+  <div class="header-right" id="headerRight"></div>
+</header>
+
+<!-- HOME -->
+<div id="page-home">
+  <div class="home-hero">
+    <div class="home-icon">⚙️</div>
+    <h1 class="home-title">Gestione <span>Preventivi</span></h1>
+    <p class="home-sub">Calcola i costi di produzione per i tuoi pezzi meccanici in modo rapido e preciso.</p>
+  </div>
+  <div class="home-buttons">
+    <div class="home-btn primary" onclick="newQuote()">
+      <div class="hbi">＋</div>
+      <div class="hbl">Nuovo Preventivo</div>
+      <div class="hbd">Crea da zero un nuovo calcolo costi</div>
+    </div>
+    <div class="home-btn" onclick="goSaved()">
+      <div class="hbi">🗂️</div>
+      <div class="hbl">Preventivi Salvati</div>
+      <div class="hbd">Consulta, modifica o confronta i preventivi</div>
+    </div>
+    <div class="home-btn" onclick="goParamsPage(null)">
+      <div class="hbi">🔴</div>
+      <div class="hbl">Tabelle Parametri Costi</div>
+      <div class="hbd">Tariffe lavorazioni e parametri taglio laser</div>
+    </div>
+  </div>
+  <div class="home-stats" id="homeStats"></div>
+  <div style="margin-top:16px;text-align:center;">
+    <div id="folderStatus" style="display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:10px;border:1.5px solid var(--border);background:var(--white);font-size:13px;color:var(--text-light);cursor:pointer;" onclick="selectFolder()">
+      <span style="font-size:18px;">☁️</span>
+      <span id="folderStatusText">Collega Google Sheets per condividere i preventivi</span>
+    </div>
+  </div>
+</div>
+
+<!-- SAVED -->
+<div id="page-saved" class="hidden">
+  <button class="btn btn-ghost btn-sm" style="margin-bottom:16px;" onclick="goHome()">← Home</button>
+  <div class="page-top">
+    <h2 class="page-title">Preventivi Salvati</h2>
+    <div class="search-bar">
+      <span class="si">🔍</span>
+      <input type="text" id="searchInput" placeholder="Cerca nome, cliente, codice…" oninput="filterQ(this.value)">
+      <button class="sc" id="searchClear" onclick="clearSearch()" style="display:none">✕</button>
+    </div>
+    <button class="btn btn-danger btn-sm" onclick="toggleDeleteMode()" id="deleteModeBtn">🗑 Cancella</button>
+    <button class="btn btn-danger btn-sm" onclick="deleteAll()" style="background:#fee2e2;color:#b91c1c;border-color:#fca5a5">⚠ Cancella tutto</button>
+    <button class="btn btn-secondary btn-sm" onclick="toggleExportMode()" id="exportModeBtn" style="background:#f0fdf4;color:#059669;border-color:#6ee7b7;">📊 Export Excel</button>
+    <button class="btn btn-primary" onclick="newQuote()">＋ Nuovo</button>
+  </div>
+  <div class="delete-action-bar hidden" id="deleteBar">
+  <span class="bar-label">Modalità eliminazione — <strong><span id="deleteCount">0</span> selezionati</strong></span>
+  <button class="btn btn-secondary btn-sm" onclick="selectAll()">Seleziona tutti</button>
+  <button class="btn btn-danger btn-sm" id="confirmDeleteBtn" onclick="confirmDelete()" disabled>🗑 Elimina selezionati</button>
+  <button class="btn btn-ghost btn-sm" onclick="toggleDeleteMode()">✕ Annulla</button>
+</div>
+<div class="delete-action-bar hidden" id="exportBar">
+  <span class="bar-label">Modalità export — <strong><span id="exportCount">0</span> selezionati</strong></span>
+  <button class="btn btn-secondary btn-sm" onclick="selectAllExport()">Seleziona tutti</button>
+  <button class="btn btn-sm" id="confirmExportBtn" onclick="exportExcel()" disabled style="background:#059669;color:#fff;border-color:#059669;">📊 Genera Excel</button>
+  <button class="btn btn-ghost btn-sm" onclick="toggleExportMode()">✕ Annulla</button>
+</div>
+<div class="quotes-grid" id="quotesGrid"></div>
+</div>
+
+<!-- PARAMS PAGE -->
+<div id="page-laser" class="hidden">
+  <button class="btn btn-ghost btn-sm" style="margin-bottom:16px;" onclick="goHome()">← Home</button>
+
+    <!-- HEADER -->
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+      <div>
+        <h2 style="margin:0;font-size:22px;font-weight:800;letter-spacing:-0.5px;">📊 Tabelle Parametri</h2>
+        <p style="margin:4px 0 0;font-size:13px;color:var(--muted);">Gestisci prezzi e tariffe utilizzati nei preventivi</p>
+      </div>
+    </div>
+
+    <!-- LANDING GRID -->
+    <div id="params-landing">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;">
+
+        <div onclick="showParamsSection('materials')" class="param-card">
+          <div class="param-card-icon" style="background:#fff7ed;color:#ea580c;">🔩</div>
+          <div class="param-card-title">Materiali</div>
+          <div class="param-card-desc">Prezzi €/kg per ogni materiale</div>
+        </div>
+
+        <div onclick="showParamsSection('piazzamento')" class="param-card">
+          <div class="param-card-icon" style="background:#f0fdf4;color:#16a34a;">📐</div>
+          <div class="param-card-title">Piazzamento</div>
+          <div class="param-card-desc">Tariffe €/ora per figura professionale</div>
+        </div>
+
+        <div onclick="showParamsSection('labor')" class="param-card">
+          <div class="param-card-icon" style="background:#f0fdf4;color:#16a34a;">👷</div>
+          <div class="param-card-title">Manodopera</div>
+          <div class="param-card-desc">Tariffe €/ora per figura professionale</div>
+        </div>
+
+        <div onclick="showParamsSection('laser')" class="param-card">
+          <div class="param-card-icon" style="background:#fee2e2;color:#dc2626;">✂️</div>
+          <div class="param-card-title">Taglio Lamiera</div>
+          <div class="param-card-desc">Parametri velocità, potenza e costi per materiale</div>
+        </div>
+
+        <div onclick="showParamsSection('laser_tubo')" class="param-card">
+          <div class="param-card-icon" style="background:#fef3c7;color:#d97706;">🔧</div>
+          <div class="param-card-title">Taglio Tubo</div>
+          <div class="param-card-desc">Tariffe €/kg, €/m, €/pz per taglio tubo</div>
+        </div>
+
+        <div onclick="showParamsSection('piega')" class="param-card">
+          <div class="param-card-icon" style="background:#ede9fe;color:#7c3aed;">📏</div>
+          <div class="param-card-title">Piega</div>
+          <div class="param-card-desc">Costo orario per piega</div>
+        </div>
+
+        <div onclick="showParamsSection('saldatura')" class="param-card">
+          <div class="param-card-icon" style="background:#fff7ed;color:#ea580c;">🔥</div>
+          <div class="param-card-title">Saldatura</div>
+          <div class="param-card-desc">Costo orario per saldatura</div>
+        </div>
+
+        <div onclick="showParamsSection('machines')" class="param-card">
+          <div class="param-card-icon" style="background:#eff6ff;color:#2563eb;">⚙️</div>
+          <div class="param-card-title">Macchinari</div>
+          <div class="param-card-desc">Tariffe €/h per macchinario e attrezzatura</div>
+        </div>
+
+        <div onclick="showParamsSection('treatments')" class="param-card">
+          <div class="param-card-icon" style="background:#fdf4ff;color:#9333ea;">🧪</div>
+          <div class="param-card-title">Trattamenti</div>
+          <div class="param-card-desc">Tariffe €/U.M. per trattamento superficiale</div>
+        </div>
+
+        <div onclick="showParamsSection('extra')" class="param-card">
+          <div class="param-card-icon" style="background:#f0fdf4;color:#059669;">💼</div>
+          <div class="param-card-title">Costi Aggiuntivi</div>
+          <div class="param-card-desc">Trasporto e costi fissi</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PIAZZAMENTO ── -->
+    <div id="params-piazzamento" class="hidden">
+      <div class="params-subpage-header">
+        <button class="btn btn-ghost btn-sm" onclick="showParamsSection(null)">← Indietro</button>
+        <div class="params-subpage-icon" style="background:#f0fdf4;color:#16a34a;">📐</div>
+        <h3 class="params-subpage-title">Piazzamento</h3>
+        <div style="flex:1"></div>
+        <button class="btn btn-secondary btn-sm" onclick="savePiazzamentoRates()">💾 Salva</button>
+        <button class="btn btn-secondary btn-sm" onclick="savePiazzamentoRates(true)">✕ Chiudi</button>
+      </div>
+      <div class="params-table-wrap" style="max-width:600px;overflow-x:auto;">
+        <div id="piazzamentoRatesBody"></div>
+      </div>
+      <p class="params-hint">💡 Le tariffe si aggiornano automaticamente all'apertura di ogni preventivo.</p>
+    </div>
+
+    <!-- ── MATERIALI ── -->
+    <div id="params-materials" class="hidden">
+      <div class="params-subpage-header">
+        <button class="btn btn-ghost btn-sm" onclick="showParamsSection(null)">← Indietro</button>
+        <div class="params-subpage-icon" style="background:#fff7ed;color:#ea580c;">🔩</div>
+        <h3 class="params-subpage-title">Materiali</h3>
+        <div style="flex:1"></div>
+        <button class="btn btn-secondary btn-sm" onclick="saveMaterialRates()">💾 Salva</button>
+        <button class="btn btn-secondary btn-sm" onclick="saveMaterialRates(true)">✕ Chiudi</button>
+      </div>
+      <div class="params-table-wrap" style="max-width:900px;overflow-x:auto;">
+        <div id="materialRatesBody"></div>
+      </div>
+      <p class="params-hint">💡 I prezzi si aggiornano automaticamente all'apertura di ogni preventivo.</p>
+    </div>
+
+    <!-- ── LAVORAZIONI ── -->
+    <div id="params-labor" class="hidden">
+      <div class="params-subpage-header">
+        <button class="btn btn-ghost btn-sm" onclick="showParamsSection(null)">← Indietro</button>
+        <div class="params-subpage-icon" style="background:#f0fdf4;color:#16a34a;">👷</div>
+        <h3 class="params-subpage-title">Manodopera</h3>
+        <div style="flex:1"></div>
+        <button class="btn btn-secondary btn-sm" onclick="saveLaborRates();saveFilettRates();">💾 Salva</button>
+        <button class="btn btn-secondary btn-sm" onclick="saveLaborRates();saveFilettRates();window.close();">✕ Chiudi</button>
+      </div>
+      <!-- tabs -->
+      <div style="display:flex;gap:8px;margin-bottom:16px;">
+        <button id="laborTabFigure" onclick="showLaborTab('figure')"
+          style="padding:7px 18px;border-radius:8px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:13px;">
+          👷 Figure
+        </button>
+        <button id="laborTabFilett" onclick="showLaborTab('filettatura')"
+          style="padding:7px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--text);font-weight:600;cursor:pointer;font-size:13px;">
+          🔩 Filettatura
+        </button>
+      </div>
+      <!-- figure -->
+      <div id="laborPanelFigure">
+        <div class="params-table-wrap" style="max-width:600px;overflow-x:auto;">
+          <div id="laborRatesBody"></div>
+        </div>
+        <p class="params-hint">💡 Le tariffe si aggiornano automaticamente all'apertura di ogni preventivo.</p>
+      </div>
+      <!-- filettatura -->
+      <div id="laborPanelFilett" class="hidden">
+        <div class="params-table-wrap" style="max-width:500px;">
+          <table style="width:100%;border-collapse:collapse;">
+            <thead><tr style="background:var(--accent-light);">
+              <th style="text-align:left;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;">Fascia</th>
+              <th style="text-align:center;padding:10px 8px;min-width:140px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;">€ / foro</th>
+            </tr></thead>
+            <tbody id="filettRatesBody"></tbody>
+          </table>
+        </div>
+        <p class="params-hint">💡 Il costo per foro viene moltiplicato per il numero di fori inserito nella card.</p>
+      </div>
+    </div>
+
+    <div id="params-laser-sub" class="hidden">
+      <div class="params-subpage-header">
+        <button class="btn btn-ghost btn-sm" onclick="showParamsSection(null)">← Indietro</button>
+        <div class="params-subpage-icon" style="background:#fee2e2;color:#dc2626;">✂️</div>
+        <h3 class="params-subpage-title">Taglio Laser</h3>
+        <div style="flex:1"></div>
+        <button class="btn btn-secondary btn-sm" id="laserResetBtn" onclick="resetLaserTable()">↩ Ripristina</button>
+        <button class="btn btn-secondary btn-sm" onclick="saveLaserFull()">💾 Salva</button>
+        <button class="btn btn-secondary btn-sm" onclick="saveLaserFull(true)">✕ Chiudi</button>
+      </div>
+      <!-- tabs -->
+      <div style="display:flex;gap:8px;margin-bottom:16px;">
+        <button id="laserTabInt" onclick="showLaserTab('interno')"
+          style="padding:7px 18px;border-radius:8px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:13px;">
+          ✂️ Interno
+        </button>
+        <button id="laserTabExt" onclick="showLaserTab('esterno')"
+          style="padding:7px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--text);font-weight:600;cursor:pointer;font-size:13px;">
+          📦 Esterno
+        </button>
+      </div>
+      <!-- interno -->
+      <div id="laserPanelInterno">
+        <div style="overflow-x:auto;background:var(--white);border:1.5px solid var(--border);border-radius:12px;">
+          <table class="tbl" id="laserParamsTable" style="min-width:900px;">
+            <thead>
+              <tr style="background:var(--accent-light);">
+                <th>#</th>
+                <th>Materiale</th>
+                <th>Gas</th>
+                <th>Spessore (mm)</th>
+                <th>Velocità (mm/min)</th>
+                <th>Potenza (W)</th>
+                <th>Pressione (bar)</th>
+                <th>Ugello (mm)</th>
+                <th>Costo orario (€/h)</th>
+                <th>€ Capannone/h</th>
+                <th>€ Operatori/h</th>
+                <th>€ Ammort./h</th>
+                <th style="color:var(--accent);">€/ora</th>
+                <th style="color:var(--accent);">€/metro</th>
+              </tr>
+            </thead>
+            <tbody id="laserParamsBody"></tbody>
+          </table>
+        </div>
+        <p class="params-hint">💡 Le colonne in blu si ricalcolano automaticamente da velocità e costo orario.</p>
+      </div>
+      <!-- esterno -->
+      <div id="laserPanelEsterno" class="hidden">
+        <div class="params-table-wrap" style="max-width:500px;">
+          <div id="laserExtRatesBody"></div>
+        </div>
+        <p class="params-hint">💡 Il prezzo si aggiorna automaticamente in base all'U.M. scelta nel preventivo.</p>
+      </div>
+    </div>
+
+    <!-- ── TAGLIO TUBO ── -->
+
+
+    <!-- ── SALDATURA ── -->
+    <div id="params-saldatura" class="hidden">
+      <div class="params-subpage-header">
+        <button class="btn btn-ghost btn-sm" onclick="showParamsSection(null)">← Indietro</button>
+        <div class="params-subpage-icon" style="background:#fff7ed;color:#ea580c;">🔥</div>
+        <h3 class="params-subpage-title">Saldatura</h3>
+        <div style="flex:1"></div>
+        <button class="btn btn-secondary btn-sm" onclick="saveSaldaturaRates()">💾 Salva</button>
+        <button class="btn btn-secondary btn-sm" onclick="saveSaldaturaRates(true)">✕ Chiudi</button>
+      </div>
+      <div class="params-table-wrap" style="max-width:500px;">
+        <table style="width:100%;border-collapse:collapse;">
+          <thead><tr style="background:var(--accent-light);">
+            <th style="text-align:left;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Parametro</th>
+            <th style="text-align:center;padding:10px 8px;min-width:120px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Valore</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 16px;font-size:13px;font-weight:500;">€/ora</td>
+              <td style="padding:6px 8px;">
+                <input type="number" id="saldaturaRateInput" value="0" min="0" step="0.5"
+                  style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:80px;"
+                  onchange="SALDATURA_RATE=+this.value; saveSaldaturaRates()"
+                  onfocus="this.select()">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="params-hint">💡 Il costo orario si applica automaticamente alle voci di saldatura.</p>
+    </div>
+
+    <!-- ── PIEGA ── -->
+    <div id="params-piega" class="hidden">
+      <div class="params-subpage-header">
+        <button class="btn btn-ghost btn-sm" onclick="showParamsSection(null)">← Indietro</button>
+        <div class="params-subpage-icon" style="background:#ede9fe;color:#7c3aed;">📏</div>
+        <h3 class="params-subpage-title">Piega</h3>
+        <div style="flex:1"></div>
+        <button class="btn btn-secondary btn-sm" onclick="savePiegaRates()">💾 Salva</button>
+        <button class="btn btn-secondary btn-sm" onclick="savePiegaRates(true)">✕ Chiudi</button>
+      </div>
+      <div class="params-table-wrap" style="max-width:500px;">
+        <table style="width:100%;border-collapse:collapse;">
+          <thead><tr style="background:var(--accent-light);">
+            <th style="text-align:left;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Tipo di piega</th>
+            <th style="text-align:center;padding:10px 8px;min-width:120px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">€/ora</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 16px;font-size:13px;font-weight:500;">Piega semplice</td>
+              <td style="padding:6px 8px;">
+                <input type="number" id="piegaSempliceRateInput" value="0" min="0" step="0.5"
+                  style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:80px;"
+                  onchange="PIEGA_RATE_SEMPLICE=+this.value; savePiegaRates()"
+                  onfocus="this.select()">
+              </td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 16px;font-size:13px;font-weight:500;">Piega complessa</td>
+              <td style="padding:6px 8px;">
+                <input type="number" id="piegaComplessaRateInput" value="0" min="0" step="0.5"
+                  style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:80px;"
+                  onchange="PIEGA_RATE_COMPLESSA=+this.value; savePiegaRates()"
+                  onfocus="this.select()">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="params-hint">💡 Il costo orario si applica automaticamente in base al tipo di piega selezionato.</p>
+    </div>
+
+    <div id="params-laser_tubo" class="hidden">
+      <div class="params-subpage-header">
+        <button class="btn btn-ghost btn-sm" onclick="showParamsSection(null)">← Indietro</button>
+        <div class="params-subpage-icon" style="background:#fef3c7;color:#d97706;">🔧</div>
+        <h3 class="params-subpage-title">Taglio Tubo</h3>
+        <div style="flex:1"></div>
+        <button class="btn btn-secondary btn-sm" onclick="saveTuboExtRates()">💾 Salva</button>
+        <button class="btn btn-secondary btn-sm" onclick="saveTuboExtRates(true)">✕ Chiudi</button>
+      </div>
+      <!-- tabs -->
+      <div style="display:flex;gap:8px;margin-bottom:16px;">
+        <button id="tuboTabInt" onclick="showTuboTab('interno')"
+          style="padding:7px 18px;border-radius:8px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:13px;">
+          🔧 Interno
+        </button>
+        <button id="tuboTabExt" onclick="showTuboTab('esterno')"
+          style="padding:7px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--text);font-weight:600;cursor:pointer;font-size:13px;">
+          📦 Esterno
+        </button>
+      </div>
+      <!-- interno -->
+      <div id="tuboPanelInterno">
+        <div class="params-table-wrap" style="max-width:500px;">
+          <table style="width:100%;border-collapse:collapse;">
+            <thead><tr style="background:var(--accent-light);">
+              <th style="text-align:left;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Parametro</th>
+              <th style="text-align:center;padding:10px 8px;min-width:120px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Valore</th>
+            </tr></thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:10px 16px;font-size:13px;font-weight:500;">€/ora</td>
+                <td style="padding:6px 8px;">
+                  <input type="number" id="tuboIntRateInput" value="0" min="0" step="0.5"
+                    style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:80px;"
+                    onchange="TUBO_INT_RATE=+this.value; saveTuboExtRates()"
+                    onfocus="this.select()">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="params-hint">💡 Il costo orario si applica automaticamente al taglio tubo interno.</p>
+      </div>
+      <!-- esterno -->
+      <div id="tuboPanelEsterno" class="hidden">
+        <div class="params-table-wrap" style="max-width:500px;">
+          <div id="tuboExtRatesBody"></div>
+        </div>
+        <p class="params-hint">💡 Il prezzo si aggiorna automaticamente in base all'U.M. scelta nel preventivo.</p>
+      </div>
+    </div>
+
+    <!-- ── MACCHINARI ── -->
+
+    <div id="params-machines" class="hidden">
+      <div class="params-subpage-header">
+        <button class="btn btn-ghost btn-sm" onclick="showParamsSection(null)">← Indietro</button>
+        <div class="params-subpage-icon" style="background:#eff6ff;color:#2563eb;">⚙️</div>
+        <h3 class="params-subpage-title">Macchinari</h3>
+        <div style="flex:1"></div>
+        <button class="btn btn-secondary btn-sm" onclick="saveMachineRates()">💾 Salva</button>
+        <button class="btn btn-secondary btn-sm" onclick="saveMachineRates(true)">✕ Chiudi</button>
+      </div>
+      <div class="params-table-wrap" style="max-width:600px;overflow-x:auto;">
+        <div id="machineRatesBody"></div>
+      </div>
+      <p class="params-hint">💡 Le tariffe si aggiornano automaticamente all'apertura di ogni preventivo.</p>
+    </div>
+
+    <!-- ── TRATTAMENTI ── -->
+    <div id="params-treatments" class="hidden">
+      <div class="params-subpage-header">
+        <button class="btn btn-ghost btn-sm" onclick="showParamsSection(null)">← Indietro</button>
+        <div class="params-subpage-icon" style="background:#fdf4ff;color:#9333ea;">🧪</div>
+        <h3 class="params-subpage-title">Trattamenti</h3>
+        <div style="flex:1"></div>
+        <button class="btn btn-secondary btn-sm" onclick="saveTreatRates()">💾 Salva</button>
+        <button class="btn btn-secondary btn-sm" onclick="saveTreatRates(true)">✕ Chiudi</button>
+      </div>
+      <div class="params-table-wrap" style="max-width:700px;overflow-x:auto;">
+        <div id="treatRatesBody"></div>
+      </div>
+      <p class="params-hint">💡 Le tariffe si aggiornano automaticamente all'apertura di ogni preventivo.</p>
+    </div>
+
+    <!-- ── TRASPORTO ── -->
+    <!-- ── COSTI AGGIUNTIVI ── -->
+    <div id="params-extra" class="hidden">
+      <div class="params-subpage-header">
+        <button class="btn btn-ghost btn-sm" onclick="showParamsSection(null)">← Indietro</button>
+        <div class="params-subpage-icon" style="background:#f0fdf4;color:#059669;">💼</div>
+        <h3 class="params-subpage-title">Costi Aggiuntivi</h3>
+        <div style="flex:1"></div>
+        <button class="btn btn-secondary btn-sm" onclick="saveTransportRates();saveFixedRates();">💾 Salva</button>
+        <button class="btn btn-secondary btn-sm" onclick="saveTransportRates();saveFixedRates();window.close();">✕ Chiudi</button>
+      </div>
+      <!-- tabs -->
+      <div style="display:flex;gap:8px;margin-bottom:16px;">
+        <button id="extraTabTransport" onclick="showExtraTab('transport')"
+          style="padding:7px 18px;border-radius:8px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:13px;">
+          🚚 Trasporto
+        </button>
+        <button id="extraTabFixed" onclick="showExtraTab('fixed')"
+          style="padding:7px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--text);font-weight:600;cursor:pointer;font-size:13px;">
+          🏭 Costi Fissi
+        </button>
+      </div>
+      <!-- trasporto -->
+      <div id="extraPanelTransport">
+        <div class="params-table-wrap" style="max-width:560px;">
+          <div class="params-table-head" style="grid-template-columns:1fr 130px 130px;">
+            <span>Veicolo</span><span>€/km ammort.</span><span>€/h autista</span>
+          </div>
+          <div id="transportRatesBody"></div>
+        </div>
+        <p class="params-hint">💡 Le tariffe si aggiornano automaticamente all'apertura di ogni preventivo.</p>
+      </div>
+      <!-- costi fissi -->
+      <div id="extraPanelFixed" class="hidden">
+        <div class="params-table-wrap" style="max-width:480px;">
+          <div class="params-table-head" style="grid-template-columns:1fr 140px;">
+            <span>Voce</span><span>€/mese</span>
+          </div>
+          <div id="fixedRatesBody"></div>
+        </div>
+        <p class="params-hint">💡 Gli importi si aggiornano automaticamente all'apertura di ogni preventivo.</p>
+      </div>
+    </div>
+
+</div>
+
+<!-- EDITOR -->
+<div id="page-editor" class="hidden">
+  <div class="editor-toolbar">
+    <button class="btn btn-ghost btn-sm" onclick="goBack()">← Indietro</button>
+    <div id="saveIndicator" class="save-pill hidden"><span class="dot"></span> Non salvato</div>
+    <div id="savedIndicator" class="saved-pill hidden">✓ Salvato</div>
+    <button class="btn btn-secondary btn-sm" onclick="resetCosts()" title="Azzera tutti i costi mantenendo le informazioni generali">↺ Ripristina</button>
+    <button class="btn btn-secondary btn-sm" onclick="exportPDF()">⬇ PDF</button>
+    <button class="btn btn-primary btn-sm" onclick="saveQuote()">💾 Salva</button>
+  </div>
+
+  <div class="editor-body">
+    <div class="editor-grid">
+      <div>
+
+        <!-- ALLEGATO -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi ci-info" style="background:#f0f4ff;">📎</div>
+            <span class="card-head-title">Allegato</span>
+          </div>
+          <div class="card-body" style="padding:12px 16px;">
+            <div id="imgDropZone" class="img-drop-zone" onclick="document.getElementById('f_img_input').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleImgDrop(event)">
+              <input type="file" id="f_img_input" accept="image/*,application/pdf" style="display:none" onchange="handleImgFile(this.files[0])">
+              <div id="imgDropPlaceholder" style="padding:20px;text-align:center;">
+                <div style="font-size:28px;margin-bottom:8px;">📎</div>
+                <div style="font-size:13px;color:var(--muted);">Trascina un file qui oppure <span style="color:var(--accent);font-weight:600;">clicca per caricare</span></div>
+                <div style="font-size:11px;color:var(--muted);margin-top:4px;">JPG, PNG, WEBP, PDF</div>
+              </div>
+              <div id="imgPreviewWrap" class="hidden" style="position:absolute;inset:0;display:flex;flex-direction:column;">
+                <img id="imgPreview" src="" style="width:100%;height:100%;object-fit:contain;border-radius:8px;display:none;">
+                <iframe id="pdfPreview" src="" style="width:100%;height:100%;border:none;border-radius:8px;display:none;"></iframe>
+                <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();removeImg()" style="position:absolute;top:8px;right:8px;background:rgba(255,255,255,0.9);backdrop-filter:blur(4px);">✕ Rimuovi</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi ci-info">📋</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Informazioni Generali</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+            <div class="fg g2">
+              <div class="field"><label>Cliente</label><input type="text" id="f_client" placeholder="Ragione sociale" oninput="updateMeta()"></div>
+              <div class="field"><label>Codice Preventivo</label><input type="text" id="f_code" oninput="updateMeta()"></div>
+            </div>
+            <div class="fg g3">
+              <div class="field"><label>Data</label><input type="date" id="f_date" oninput="updateMeta()"></div>
+              <div class="field"><label>Quantità</label><input type="number" id="f_qty" value="1" min="1" oninput="updateMeta();renderPiazzamento(draft);recalc()" onfocus="this.select()"></div>
+              <div class="field"><label>U.M.</label><select id="f_um" onchange="updateMeta()"><option>pz</option><option>lotto</option><option>m</option><option>kg</option></select></div>
+            </div>
+            <div class="field"><label>Note / Specifiche tecniche</label><textarea id="f_notes" placeholder="Tolleranze, trattamenti, finiture richieste…" oninput="updateMeta()"></textarea></div>
+          </div>
+        </div>
+
+        <!-- MATERIALI -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi ci-mat">🔩</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Materiale</span> <button style="font-size:11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 7px;cursor:pointer;font-weight:600;margin-left:8px;white-space:nowrap;" onclick="event.stopPropagation();openMatsTable()">↗ Parametri</button>
+            <span class="card-head-total" id="tot_materials">€ 0,00</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+            <table class="tbl"><colgroup><col style="width:auto"><col style="min-width:140px"><col style="width:140px"><col style="width:60px"><col style="width:70px"><col style="width:85px"><col style="width:80px"><col style="width:36px"></colgroup><thead><tr><th style="text-align:center">Materia Prima</th><th style="text-align:center">Descrizione</th><th style="text-align:center">Materiale</th><th style="text-align:center">U.M.</th><th style="text-align:center">Qtà</th><th style="text-align:center">€/U.M.</th><th style="text-align:right">Tot.</th><th></th></tr></thead><tbody id="materialsBody"></tbody></table>
+            <button class="btn btn-add" onclick="addMaterial()">＋ Aggiungi materiale</button>
+          </div>
+        </div>
+
+
+        <!-- PIAZZAMENTO -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi" style="background:#f0fdf4;">📐</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Piazzamento</span> <button style="font-size:11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 7px;cursor:pointer;font-weight:600;margin-left:8px;white-space:nowrap;" onclick="event.stopPropagation();openPiazzamentoTable()">↗ Parametri</button>
+            <span class="card-head-total" id="tot_piazzamento">€ 0,00</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+            <table class="tbl"><colgroup><col style="width:150px"><col style="width:auto"><col style="width:110px"><col style="width:100px"><col style="width:80px"><col style="width:36px"></colgroup><thead><tr><th style="text-align:center">Operatore</th><th style="text-align:center">Descrizione</th><th style="text-align:center">Tempo (min)</th><th style="text-align:center">€/ora</th><th style="text-align:right">Tot.</th><th></th></tr></thead><tbody id="piazzamentoBody"></tbody></table>
+            <button class="btn btn-add" style="margin-top:8px;" onclick="addPiazzamento()">＋ Aggiungi voce</button>
+          </div>
+        </div>
+        <!-- TAGLIO CARD -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi ci-mac" style="background:#fee2e2;">✂️</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Taglio lamiera</span> <button style="font-size:11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 7px;cursor:pointer;font-weight:600;margin-left:8px;white-space:nowrap;" onclick="event.stopPropagation();openParamsTab('laser')">↗ Parametri</button>
+            <span class="card-head-total" id="tot_laser">€ 0,00</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+<table class="tbl" style="table-layout:fixed;width:100%;"><colgroup id="laserCols"><col style="width:150px"><col style="width:100px"><col style="width:70px"><col style="width:90px"><col style="width:100px"><col style="width:90px"><col style="width:80px"><col style="width:36px"></colgroup><thead id="laserHead"><tr><th style="text-align:center">Tipo taglio</th><th style="text-align:right">Tot.</th><th></th></tr></thead><tbody id="laserBody"></tbody></table>
+            <button class="btn btn-add" style="margin-top:8px;" onclick="addLaser()">＋ Aggiungi taglio</button>
+          </div>
+        </div>
+
+
+        <!-- TAGLIO TUBO -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi" style="background:#fef3c7;">🔧</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Taglio tubo</span> <button style="font-size:11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 7px;cursor:pointer;font-weight:600;margin-left:8px;white-space:nowrap;" onclick="event.stopPropagation();openParamsTab('laser_tubo')">↗ Parametri</button>
+            <span class="card-head-total" id="tot_tubo">€ 0,00</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+            <table class="tbl" style="table-layout:fixed;width:100%;"><colgroup id="tuboCols"><col style="width:150px"><col style="width:100px"><col style="width:70px"><col style="width:90px"><col style="width:100px"><col style="width:90px"><col style="width:80px"><col style="width:36px"></colgroup><thead id="tuboHead"><tr><th style="text-align:center">Tipo taglio</th><th style="text-align:right">Tot.</th><th></th></tr></thead><tbody id="tuboBody"></tbody></table>
+            <button class="btn btn-add" style="margin-top:8px;" onclick="addTubo()">＋ Aggiungi taglio</button>
+          </div>
+        </div>
+
+        <!-- PIEGA -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi" style="background:#ede9fe;">📏</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Piega</span> <button style="font-size:11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 7px;cursor:pointer;font-weight:600;margin-left:8px;white-space:nowrap;" onclick="event.stopPropagation();openParamsTab('piega')">↗ Parametri</button>
+            <span class="card-head-total" id="tot_piega">€ 0,00</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+            <table class="tbl" style="table-layout:fixed;width:100%;"><colgroup id="piegaCols"><col style="width:auto"><col style="width:110px"><col style="width:100px"><col style="width:80px"><col style="width:36px"></colgroup><thead id="piegaHead"><tr><th style="text-align:center">Piega</th><th></th></tr></thead><tbody id="piegaBody"></tbody></table>
+            <button class="btn btn-add" style="margin-top:8px;" onclick="addPiega()">＋ Aggiungi piega</button>
+          </div>
+        </div>
+
+        <!-- SALDATURA -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi" style="background:#fff7ed;">🔥</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Saldatura</span> <button style="font-size:11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 7px;cursor:pointer;font-weight:600;margin-left:8px;white-space:nowrap;" onclick="event.stopPropagation();openParamsTab('saldatura')">↗ Parametri</button>
+            <span class="card-head-total" id="tot_saldatura">€ 0,00</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+            <table class="tbl" style="table-layout:fixed;width:100%;"><colgroup id="saldaturaCols"><col style="width:auto"><col style="width:110px"><col style="width:100px"><col style="width:80px"><col style="width:36px"></colgroup><thead id="saldaturaHead"><tr><th style="text-align:center">Tipo saldatura</th><th></th></tr></thead><tbody id="saldaturaBody"></tbody></table>
+            <button class="btn btn-add" style="margin-top:8px;" onclick="addSaldatura()">＋ Aggiungi saldatura</button>
+          </div>
+        </div>
+        <!-- MANODOPERA -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi ci-lab">👷</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Manodopera</span> <button style="font-size:11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 7px;cursor:pointer;font-weight:600;margin-left:8px;white-space:nowrap;" onclick="event.stopPropagation();openParamsTab('labor')">↗ Parametri</button>
+            <span class="card-head-total" id="tot_labor">€ 0,00</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+            <table class="tbl" style="table-layout:fixed;width:100%;"><colgroup id="laborCols"><col style="width:auto"><col style="width:auto"><col style="width:90px"><col style="width:90px"><col style="width:90px"><col style="width:80px"><col style="width:36px"></colgroup><thead id="laborHead"><tr><th style="text-align:center">Operazione</th><th style="text-align:center">Figura</th><th style="text-align:center">Minuti</th><th style="text-align:center">€/ora</th><th style="text-align:center">Addetti</th><th style="text-align:right">Tot.</th><th></th></tr></thead><tbody id="laborBody"></tbody></table>
+            <button class="btn btn-add" onclick="addLabor()">＋ Aggiungi operazione</button>
+          </div>
+        </div>
+
+        <!-- MACCHINARI -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi ci-mac">⚙️</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Macchinari e Attrezzatura</span> <button style="font-size:11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 7px;cursor:pointer;font-weight:600;margin-left:8px;white-space:nowrap;" onclick="event.stopPropagation();openParamsTab('machines')">↗ Parametri</button>
+            <span class="card-head-total" id="tot_machines">€ 0,00</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+            <table class="tbl"><colgroup><col style="width:200px"><col style="width:auto"><col style="width:70px"><col style="width:75px"><col style="width:80px"><col style="width:36px"></colgroup><thead><tr><th style="text-align:center">Macchinario</th><th style="text-align:center">Descrizione</th><th style="text-align:center">Minuti</th><th style="text-align:center">€/ora</th><th style="text-align:right">Tot.</th><th></th></tr></thead><tbody id="machinesBody"></tbody></table>
+            <button class="btn btn-add" style="margin-top:8px;border-color:#bfdbfe;color:var(--accent);" onclick="addMachine()">＋ Aggiungi macchinario</button>
+          </div>
+        </div>
+
+        <!-- TRATTAMENTI -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi ci-treat">🧪</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Trattamenti</span> <button style="font-size:11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 7px;cursor:pointer;font-weight:600;margin-left:8px;white-space:nowrap;" onclick="event.stopPropagation();openParamsTab('treatments')">↗ Parametri</button>
+            <span class="card-head-total" id="tot_treat">€ 0,00</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+            <table class="tbl"><colgroup><col style="width:200px"><col style="width:auto"><col style="width:60px"><col style="width:75px"><col style="width:70px"><col style="width:80px"><col style="width:36px"></colgroup><thead><tr><th style="text-align:center">Tipo trattamento</th><th style="text-align:center">Descrizione</th><th style="text-align:center">U.M.</th><th style="text-align:center">€/U.M.</th><th style="text-align:center">Qtà</th><th style="text-align:right">Tot.</th><th></th></tr></thead><tbody id="treatBody"></tbody></table>
+            <button class="btn btn-add" onclick="addTreat()">＋ Aggiungi trattamento</button>
+          </div>
+        </div>
+
+        <!-- EXTRA -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi ci-ext">📦</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Costi Aggiuntivi</span> <button style="font-size:11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 7px;cursor:pointer;font-weight:600;margin-left:8px;white-space:nowrap;" onclick="event.stopPropagation();openParamsTab('extra')">↗ Parametri</button>
+            <span class="card-head-total" id="tot_extra">€ 0,00</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body" style="padding:0;">
+
+            <!-- TRASPORTO SUB-SECTION -->
+            <div style="padding:16px 20px;">
+              <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                <span onclick="goParamsPage('transport')" style="cursor:pointer;" title="Apri parametri trasporto">🚚 Trasporto ↗</span>
+                <span id="tot_transport" style="color:var(--accent);font-size:12px;margin-left:auto;font-weight:800;">€ 0,00</span>
+              </div>
+              <table class="tbl"><colgroup><col style="width:auto"><col style="width:120px"><col style="width:100px"><col style="width:60px"><col style="width:90px"><col style="width:90px"><col style="width:80px"><col style="width:36px"></colgroup><thead><tr><th style="text-align:center">Descrizione</th><th style="text-align:center">Veicolo / km</th><th style="text-align:center">€ Ammort./km</th><th style="text-align:center">Km</th><th style="text-align:center">Ore autista</th><th style="text-align:center">€/Ora autista</th><th style="text-align:right">Tot.</th><th></th></tr></thead><tbody id="transportBody"></tbody></table>
+              <button class="btn btn-add" style="margin-top:8px;border-color:#bfdbfe;color:var(--accent);" onclick="addTransport()">＋ Aggiungi trasporto</button>
+            </div>
+
+            <!-- ALTRI COSTI -->
+            <div style="padding:16px 20px;border-top:1px solid var(--border);">
+              <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                📋 Altri costi
+                <span id="tot_altri" style="color:var(--accent);font-size:12px;margin-left:auto;font-weight:800;">€ 0,00</span>
+              </div>
+              <table class="tbl"><colgroup><col style="width:auto"><col style="width:130px"><col style="width:100px"><col style="width:80px"><col style="width:36px"></colgroup><thead><tr><th style="text-align:center">Descrizione</th><th style="text-align:center">Categoria</th><th style="text-align:center">Importo €</th><th style="text-align:right">Tot.</th><th></th></tr></thead><tbody id="extraBody"></tbody></table>
+              <button class="btn btn-add" style="margin-top:8px;" onclick="addExtra()">＋ Aggiungi voce</button>
+            </div>
+
+            <!-- COSTI FISSI -->
+            <div style="padding:16px 20px;border-top:1px solid var(--border);">
+              <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                <span onclick="goParamsPage('fixed')" style="cursor:pointer;" title="Apri parametri costi fissi">🏭 Costi Fissi ↗</span>
+                <span id="tot_fixed" style="color:var(--accent);font-size:12px;margin-left:auto;font-weight:800;">€ 0,00</span>
+              </div>
+              <table class="tbl"><colgroup><col style="width:auto"><col style="width:150px"><col style="width:100px"><col style="width:80px"><col style="width:36px"></colgroup><thead><tr><th style="text-align:center">Descrizione</th><th style="text-align:center">Tipo</th><th style="text-align:center">Importo €</th><th style="text-align:right">Tot.</th><th></th></tr></thead><tbody id="fixedBody"></tbody></table>
+              <button class="btn btn-add" style="margin-top:8px;border-color:#bfdbfe;color:var(--accent);" onclick="addFixed()">＋ Aggiungi costo fisso</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- MARGINE -->
+        <div class="card">
+          <div class="card-head" style="cursor:default;">
+            <div class="chi ci-sum">📊</div>
+            <span class="card-head-title" style="cursor:pointer;" onclick="toggleCard(this.parentElement)">Spese Generali e Margine</span>
+            <span class="chevron open" onclick="toggleCard(this.parentElement)" style="cursor:pointer;padding:4px 8px;">▼</span>
+          </div>
+          <div class="card-body">
+            <div class="fg g4">
+              <div class="field"><label>Spese Generali %</label><div class="uw"><input type="number" id="f_overhead" value="0" min="0" max="100" step="0.5" oninput="updateMeta();recalc()" onfocus="this.select()"><span class="un">%</span></div></div>
+              <div class="field"><label>Margine / Utile %</label><div class="uw"><input type="number" id="f_margin" value="0" min="0" max="100" step="0.5" oninput="updateMeta();recalc()" onfocus="this.select()"><span class="un">%</span></div></div>
+              <div class="field"><label>Sconto %</label><div class="uw"><input type="number" id="f_discount" value="0" min="0" max="100" step="0.5" oninput="updateMeta();recalc()" onfocus="this.select()"><span class="un">%</span></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SUMMARY -->
+      <div style="position:sticky;top:72px;z-index:100;">
+        <div class="sum-panel">
+          <div class="sum-title">Riepilogo Costi</div>
+          <div class="sum-row"><span class="sum-lbl">Materiali</span><span class="sum-val" id="sum_materials">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl">Manodopera</span><span class="sum-val" id="sum_labor">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl">Macchinari</span><span class="sum-val" id="sum_machines">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl">Taglio</span><span class="sum-val" id="sum_laser">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl">Trattamenti</span><span class="sum-val" id="sum_treat">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl">Trasporto</span><span class="sum-val" id="sum_transport">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl">Costi aggiuntivi</span><span class="sum-val" id="sum_extra">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl">Costi fissi</span><span class="sum-val" id="sum_fixed">€ 0,00</span></div>
+          <hr class="sum-divider">
+          <div class="sum-row"><span class="sum-lbl">Costo diretto</span><span class="sum-val" id="sum_direct">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl">Spese generali</span><span class="sum-val" id="sum_overhead">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl">Costo pieno</span><span class="sum-val" id="sum_full">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl">Margine</span><span class="sum-val" id="sum_margin">€ 0,00</span></div>
+          <div class="sum-row"><span class="sum-lbl" style="color:var(--success)">Sconto</span><span class="sum-val" id="sum_discount" style="color:var(--success)">- € 0,00</span></div>
+          <hr class="sum-divider">
+          <div class="sum-row"><span class="sum-lbl">Prezzo netto × <span id="qty_label">1</span> pz</span><span class="sum-val" id="sum_net">€ 0,00</span></div>
+          <div class="sum-row sum-total-row">
+            <span class="sum-total-lbl">Totale</span>
+            <span class="sum-total-val" id="sum_total">€ 0,00</span>
+          </div>
+          <div class="sum-unit-box">
+            <span class="sum-unit-lbl">Prezzo unitario (1 pz)</span>
+            <span class="sum-unit-val" id="sum_unit">€ 0,00</span>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:8px;">
+            <button class="btn btn-secondary btn-sm" style="flex:1;justify-content:center" onclick="duplicateQuote()">⎘ Duplica</button>
+            <button class="btn btn-secondary btn-sm" style="flex:1;justify-content:center" onclick="exportPDF()">⬇ PDF</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+let quotes = JSON.parse(localStorage.getItem('ppro_v2') || '[]');
+let currentId = null, draft = null, unsaved = false, searchQ = '';
+
+// NAV
+function showPage(id) {
+  ['page-home','page-saved','page-editor','page-laser'].forEach(p => document.getElementById(p).classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  sessionStorage.setItem('ppro_current_page', id);
+  window.scrollTo(0, 0);
+}
+function goBack() {
+  if (unsaved && !confirm('Hai modifiche non salvate. Continuare senza salvare?')) return;
+  discardChanges();
+  if (_editorOrigin === 'page-saved') { goSaved(); }
+  else { updateHomeStats(); showPage('page-home'); document.getElementById('breadcrumb').innerHTML = ''; document.getElementById('headerRight').innerHTML = ''; }
+}
+function goHome() {
+  if (unsaved && !confirm('Hai modifiche non salvate. Continuare senza salvare?')) return;
+  discardChanges();
+  deleteMode = false; selectedIds.clear();
+  updateHomeStats(); showPage('page-home');
+  document.getElementById('breadcrumb').innerHTML = '';
+  document.getElementById('headerRight').innerHTML = '';
+}
+function goSaved() {
+  if (unsaved && !confirm('Hai modifiche non salvate. Continuare senza salvare?')) return;
+  discardChanges();
+  deleteMode = false; exportMode = false; selectedIds.clear(); exportIds.clear();
+  showPage('page-saved'); renderGrid();
+  document.getElementById('deleteBar').classList.add('hidden');
+  document.getElementById('exportBar').classList.add('hidden');
+  document.getElementById('breadcrumb').innerHTML = '<span class="sep">›</span><span class="crumb">Preventivi Salvati</span>';
+  document.getElementById('headerRight').innerHTML = '';
+}
+function setBc(label) {
+  document.getElementById('breadcrumb').innerHTML = label ? `<span class="sep">›</span><span class="crumb">${label}</span>` : '';
+}
+
+
+
+function openParamsTab(section) {
+  // Store which section to open
+  localStorage.setItem('ppro_open_section', section);
+  const url = window.location.href.split('#')[0];
+  window.open(url + '#params', '_blank');
+}
+// On load, check if we should auto-navigate to a params section
+(function() {
+  if (window.location.hash === '#params') {
+    const section = localStorage.getItem('ppro_open_section');
+    if (section) {
+      localStorage.removeItem('ppro_open_section');
+      window.addEventListener('DOMContentLoaded', function() {}, false);
+      // Will be handled in init()
+      window._autoSection = section;
+    }
+  }
+})();
+
+function init() {
+  updateHomeStats();
+  if (window._autoSection) {
+    showPage('page-laser');
+    showParamsSection(window._autoSection);
+    document.getElementById('breadcrumb').innerHTML = '<span class="sep">›</span><span class="crumb">Tabelle Parametri Costi</span>';
+    return;
+  }
+  // Restore draft from sessionStorage if user refreshed while editing
+  try {
+    const session = JSON.parse(sessionStorage.getItem('ppro_session_draft') || 'null');
+    if (session && session.id && session.draft) {
+      currentId = session.id;
+      draft = session.draft;
+      fillForm(draft);
+      showPage('page-editor');
+      setBc(escHtml(draft.name));
+      setUnsaved(true);
+      return;
+    }
+  } catch(e) {}
+  // Restore last page on refresh
+  const lastPage = sessionStorage.getItem('ppro_current_page');
+  if (lastPage === 'page-saved') {
+    showPage('page-saved'); renderGrid();
+    document.getElementById('breadcrumb').innerHTML = '<span class="sep">›</span><span class="crumb">Preventivi Salvati</span>';
+  } else {
+    showPage('page-home');
+  }
+}
+
+function updateHomeStats() {
+  document.getElementById('homeStats').innerHTML = `
+    <div class="stat-chip">📄 <strong>${quotes.length}</strong> preventivi salvati</div>`;
+}
+
+// SAVED PAGE
+function renderGrid(filter) {
+  filter = filter || searchQ;
+  const grid = document.getElementById('quotesGrid');
+  let list = quotes;
+  if (filter) { const f=filter.toLowerCase(); list=quotes.filter(q=>(q.name||'').toLowerCase().startsWith(f)||(q.client||'').toLowerCase().startsWith(f)||(q.code||'').toLowerCase().startsWith(f)); }
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="empty-box"><div class="empty-box-icon">${filter?'🔍':'🗂️'}</div><h3>${filter?'Nessun risultato':'Nessun preventivo salvato'}</h3><p style="margin-top:8px;">${filter?'Prova con un altro termine.':'Crea il tuo primo preventivo!'}</p>${!filter?'<button class="btn btn-primary" style="margin-top:20px" onclick="newQuote()">+ Crea preventivo</button>':''}</div>`;
+    return;
+  }
+  grid.innerHTML = list.slice().reverse().map(q => {
+    const t=calcTotal(q);
+    const bc={draft:'b-draft',sent:'b-sent',accepted:'b-accepted'}[q.status];
+    const bl={draft:'Bozza',sent:'Inviato',accepted:'Accettato'}[q.status];
+    const dc={draft:'d-draft',sent:'d-sent',accepted:'d-accepted'}[q.status];
+    const isSel = selectedIds.has(q.id);
+    const isExpSel = exportIds.has(q.id);
+    const clickAction = deleteMode ? `toggleSelect('${q.id}')` : exportMode ? `toggleExportSelect('${q.id}')` : `openQuote('${q.id}')`;
+    return `<div class="qcard ${deleteMode?'delete-mode':''} ${isSel?'selected':''} ${isExpSel?'export-selected':''}" data-id="${q.id}" onclick="${clickAction}">
+      ${deleteMode?`<div class="qcard-check" style="padding:0 0 0 16px;"><div class="check-circle ${isSel?'checked':''}">✓</div></div>`:''}
+      ${exportMode?`<div class="qcard-check" style="padding:0 0 0 16px;"><div class="check-circle ${isExpSel?'checked':''}">✓</div></div>`:''}
+      <div class="qcard-top">
+        <div class="qdot ${dc}"></div>
+        <div class="qcard-info">
+          <div class="qcard-name">${escHtml(q.code||q.name)}</div>
+          <div class="qcard-client">${escHtml(q.client||'—')}</div>
+          <div class="qcard-code">${q.date||''}${q.time?' · '+q.time:''}</div>
+        </div>
+      </div>
+      <div class="qcard-bottom">
+        <div class="qcard-meta" style="min-width:50px;text-align:right;">${q.qty||1} pz</div>
+        <div class="qcard-total" style="min-width:90px;text-align:right;">${fmt(t)}</div>
+        ${!deleteMode&&!exportMode?`<div class="qcard-actions" onclick="event.stopPropagation()">
+          <button class="btn btn-secondary btn-sm" onclick="openQuote('${q.id}')">✏ Modifica</button>
+          <button class="btn-icon" onclick="delQuote('${q.id}')">🗑</button>
+        </div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+function filterQ(val) { searchQ=val; document.getElementById('searchClear').style.display=val?'':'none'; renderGrid(val); }
+function clearSearch() { document.getElementById('searchInput').value=''; filterQ(''); }
+
+// CRUD
+function discardChanges() {
+  sessionStorage.removeItem('ppro_session_draft');
+  unsaved = false;
+  draft = null;
+  currentId = null;
+}
+function newQuote() {
+  _editorOrigin = sessionStorage.getItem("ppro_current_page") || "page-home";
+  if (unsaved) {
+    if (!confirm('Hai modifiche non salvate. Continuare senza salvare?')) return;
+    discardChanges();
+  }
+  const id=Date.now().toString(), today=new Date().toISOString().split('T')[0];
+  const timeNow=new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+  const code='PRV-'+new Date().getFullYear()+'-'+String(quotes.length+1).padStart(3,'0');
+  const q={id,name:'Nuovo Preventivo',client:'',code,date:today,time:timeNow,validity:30,qty:1,um:'pz',status:'draft',notes:'',overhead:0,margin:0,discount:0,materials:[],labor:[],machines:[],laser:[],treat:[],transport:[],extra:[],fixed:[],_new:true,_initRows:true};
+  currentId=id; draft=JSON.parse(JSON.stringify(q)); setUnsaved(false);
+  fillForm(draft); showPage('page-editor'); setBc(escHtml(draft.code||draft.name));
+}
+function openQuote(id) {
+  _editorOrigin = sessionStorage.getItem("ppro_current_page") || "page-home";
+  if (unsaved && currentId !== id) {
+    if (!confirm('Hai modifiche non salvate. Continuare senza salvare?')) return;
+    discardChanges();
+  }
+  currentId=id; const q=quotes.find(x=>x.id===id); if(!q) return;
+  draft=JSON.parse(JSON.stringify(q)); setUnsaved(false);
+  fillForm(draft); showPage('page-editor'); setBc(escHtml(draft.code||draft.name));
+}
+function delQuote(id) {
+  if (!confirm('Eliminare questo preventivo?')) return;
+  quotes=quotes.filter(x=>x.id!==id); saveAll(); renderGrid(); updateHomeStats();
+}
+function duplicateQuote() {
+  const q=quotes.find(x=>x.id===currentId); if(!q) return;
+  const copy=JSON.parse(JSON.stringify(q)); copy.id=Date.now().toString(); copy.name+=' (copia)'; copy.code+='-B'; copy.status='draft'; delete copy._new;
+  quotes.push(copy); saveAll(); openQuote(copy.id); showToast('Preventivo duplicato ✓');
+}
+
+// SAVE
+function saveAll() { localStorage.setItem('ppro_v2', JSON.stringify(quotes)); gsSavePreventivi(); }
+
+// ── GOOGLE SHEETS SYNC ────────────────────────────────────────────────────────
+// Incolla qui l'URL dello script Google Apps Script dopo averlo pubblicato
+let GS_URL = 'https://script.google.com/macros/s/AKfycbydvw5Hb56ZI_KChc6HLGMyadak1EJRA7y8TAkxJqBgUrpv0xUgvfMv8CO4sZVS0MvH/exec';
+
+function collectParams() {
+  const keys = [
+    'ppro_labor_rates','ppro_filett_rates','ppro_material_rates',
+    'ppro_piazzamento_rates','ppro_machine_rates','ppro_treat_rates',
+    'ppro_treat_ums','ppro_treat_setup','ppro_transport_rates',
+    'ppro_fixed_rates','ppro_laser_full','ppro_laser_ext_rates',
+    'ppro_tubo_ext_rates','ppro_tubo_int_rate','ppro_piega_rate_semplice',
+    'ppro_piega_rate_complessa','ppro_saldatura_rate'
+  ];
+  const out = {};
+  keys.forEach(k => { const v = localStorage.getItem(k); if (v !== null) out[k] = v; });
+  return out;
+}
+function applyParams(params) {
+  Object.entries(params).forEach(([k, v]) => localStorage.setItem(k, v));
+}
+
+async function gsCall(body) {
+  if (!GS_URL) return null;
+  return new Promise((resolve) => {
+    const cbName = 'gsCallback_' + Date.now();
+    const params = new URLSearchParams({ action: body.action, data: JSON.stringify(body.data), callback: cbName });
+    const script = document.createElement('script');
+    window[cbName] = (data) => { delete window[cbName]; document.body.removeChild(script); resolve(data); };
+    script.onerror = () => { delete window[cbName]; document.body.removeChild(script); resolve(null); };
+    script.src = GS_URL + '?' + params.toString();
+    document.body.appendChild(script);
+  });
+}
+async function gsGet(action) {
+  if (!GS_URL) return null;
+  return new Promise((resolve) => {
+    const cbName = 'gsCallback_' + Date.now();
+    const script = document.createElement('script');
+    window[cbName] = (data) => { delete window[cbName]; document.body.removeChild(script); resolve(data); };
+    script.onerror = () => { delete window[cbName]; document.body.removeChild(script); resolve(null); };
+    script.src = GS_URL + '?action=' + action + '&callback=' + cbName;
+    document.body.appendChild(script);
+  });
+}
+
+async function gsSavePreventivi() {
+  await gsCall({ action: 'savePreventivi', data: quotes });
+}
+async function gsSaveParametri() {
+  await gsCall({ action: 'saveParametri', data: collectParams() });
+}
+async function gsLoadAll() {
+  const preventivi = await gsGet('getPreventivi');
+  if (Array.isArray(preventivi) && preventivi.length > 0) {
+    quotes = preventivi;
+    localStorage.setItem('ppro_v2', JSON.stringify(quotes));
+    updateHomeStats();
+  }
+  const params = await gsGet('getParametri');
+  if (params && typeof params === 'object' && !params.error) {
+    applyParams(params);
+  }
+  if (preventivi || params) showToast('Dati caricati da Google Sheets ✓');
+}
+
+// Carica all'avvio se URL configurato
+if (GS_URL) gsLoadAll();
+
+// Polling ogni 20 secondi per vedere i preventivi degli altri
+setInterval(async () => {
+  if (!GS_URL) return;
+  const currentPage = sessionStorage.getItem('ppro_current_page');
+  if (currentPage !== 'page-saved') return;
+  const fresh = await gsGet('getPreventivi');
+  if (Array.isArray(fresh)) { quotes = fresh; localStorage.setItem('ppro_v2', JSON.stringify(quotes)); renderGrid(); }
+}, 20000);
+
+function setGsUrl(url) {
+  GS_URL = url.trim();
+  localStorage.setItem('ppro_gs_url', GS_URL);
+  setFolderStatus(GS_URL ? 'Google Sheets collegato' : '', !!GS_URL);
+  if (GS_URL) { gsLoadAll(); showToast('Google Sheets collegato ✓'); }
+}
+
+function setFolderStatus(name, ok) {
+  const el = document.getElementById('folderStatus');
+  const txt = document.getElementById('folderStatusText');
+  if (!el) return;
+  if (ok) {
+    el.style.borderColor = '#16a34a'; el.style.background = '#f0fdf4'; el.style.color = '#15803d';
+    txt.innerHTML = '🟢 ' + name + ' <span style="font-size:11px;opacity:0.7;margin-left:8px;cursor:pointer;" onclick="changeGsUrl()">modifica</span>';
+  } else {
+    el.style.borderColor = 'var(--border)'; el.style.background = 'var(--white)'; el.style.color = 'var(--text-light)';
+    txt.textContent = '☁️ Collega Google Sheets per condividere i preventivi';
+  }
+}
+
+function selectFolder() {
+  const url = prompt('Incolla qui l\'URL dello script Google Apps Script:', GS_URL || '');
+  if (url === null) return;
+  setGsUrl(url);
+}
+function changeGsUrl() {
+  const url = prompt('Modifica URL Google Apps Script:', GS_URL || '');
+  if (url === null) return;
+  setGsUrl(url);
+}
+
+// Aggiorna stato icona all'avvio
+setFolderStatus(GS_URL ? 'Google Sheets collegato' : '', !!GS_URL);
+function saveQuote() {
+  if (!currentId||!draft) return;
+  draft.name = document.getElementById('f_code').value || draft.code || 'Senza nome';
+  delete draft._new;
+  const idx=quotes.findIndex(x=>x.id===currentId);
+  if (idx>=0) { quotes[idx]=JSON.parse(JSON.stringify(draft)); }
+  else { quotes.push(JSON.parse(JSON.stringify(draft))); }
+  saveAll();
+  sessionStorage.removeItem('ppro_session_draft');
+  setUnsaved(false); setBc(escHtml(draft.name)); showToast('Salvato ✓'); updateHomeStats();
+}
+function setUnsaved(val) {
+  unsaved=val;
+  document.getElementById('saveIndicator').classList.toggle('hidden',!val);
+  document.getElementById('savedIndicator').classList.toggle('hidden',val);
+}
+function markUnsaved() {
+  if(!unsaved) setUnsaved(true);
+  // Persist current draft to sessionStorage so page refresh restores it
+  if (draft && currentId) {
+    try { sessionStorage.setItem('ppro_session_draft', JSON.stringify({id:currentId, draft:draft})); } catch(e){}
+  }
+}
+
+function showToast(msg) {
+  const t=document.getElementById('toast'); t.textContent=msg; t.style.opacity='1';
+  clearTimeout(t._t); t._t=setTimeout(()=>t.style.opacity='0',2200);
+}
+
+// FILL
+
+function resetCosts() {
+  if (!confirm('Azzerare tutti i costi? Le informazioni generali verranno mantenute.')) return;
+  draft.materials = []; draft.labor = []; draft.machines = []; draft.laser = [];
+  draft.treat = []; draft.transport = []; draft.extra = []; draft.fixed = [];
+  draft.overhead = 0; draft.margin = 0; draft.discount = 0;
+  ensureRows(draft);
+  sv('f_overhead', draft.overhead); sv('f_margin', draft.margin);
+  sv('f_discount', draft.discount);
+  renderMaterials(draft); renderPiazzamento(draft); renderTubo(draft); renderPiega(draft); renderSaldatura(draft); renderLabor(draft); renderMachines(draft); renderLaser(draft);
+  renderTreat(draft); renderTransport(draft); renderExtra(draft); renderFixed(draft);
+  recalc(); markUnsaved(); showToast('Costi azzerati ✓');
+}
+
+
+function ensureRows(q) {
+  if (!q.materials||!q.materials.length) { q.materials=[{id:uid(),desc:'',mat:'',qty:0,um:'kg',price:0,scrap:0}]; }
+  if (!q.piazzamento||!q.piazzamento.length) { q.piazzamento=[{id:uid(),operator:'',minutes:0,rate:0}]; }
+  if (!q.tubo||!q.tubo.length) { q.tubo=[{id:uid(),tipo:'',um:'kg',qty:0,priceExt:0}]; }
+  if (!q.piega||!q.piega.length) { q.piega=[{id:uid(),tipo:'',minutes:0,rate:0}]; }
+  if (!q.saldatura||!q.saldatura.length) { q.saldatura=[{id:uid(),tipo:'',minutes:0,rate:0,priceExt:0}]; }
+  if (!q.labor||!q.labor.length) { q.labor=[{id:uid(),op:'',operator:'',minutes:0,rate:0,addetti:1}]; }
+  if (!q.machines||!q.machines.length) { q.machines=[{id:uid(),machine:'',op:'',hours:0,rate:0,setup:0}]; }
+  if (!q.laser||!q.laser.length) { q.laser=[{id:uid(),mat:'Ferro',gas:'Aria',sp:1,lunghezza:0,tempo:0,setup:0}]; }
+  if (!q.treat||!q.treat.length) { q.treat=[{id:uid(),desc:'',type:'',um:'kg',qty:0,rate:0}]; }
+  if (!q.transport||!q.transport.length) { q.transport=[{id:uid(),desc:'',vehicle:'',ammKm:0,km:0,driverHours:0,driverRate:0}]; }
+  if (!q.extra||!q.extra.length) { q.extra=[{id:uid(),desc:'',cat:'Imballaggio',amount:0}]; }
+  if (!q.fixed||!q.fixed.length) { q.fixed=[{id:uid(),desc:'',type:'',amount:0}]; }
+}
+
+function syncPricesFromRates(q) {
+  // Update prices in all rows from current param tables
+  (q.materials||[]).forEach(r => { if (r.mat && MATERIAL_RATES[r.mat]) { const um = r.um||'kg'; const p = MATERIAL_RATES[r.mat][um] ?? MATERIAL_RATES[r.mat]['kg'] ?? 0; if (p !== undefined && p > 0) r.price = p; } });
+  (q.piazzamento||[]).forEach(r => { if (r.operator && PIAZZAMENTO_RATES[r.operator] !== undefined) { const p = PIAZZAMENTO_RATES[r.operator]; if (p > 0) r.rate = p; } });
+  (q.labor||[]).forEach(r => { if (r.operator && LABOR_RATES[r.operator]) { const lr=LABOR_RATES[r.operator]; r.rate=lr.cpm||lr||0; r.setup=lr.setup||0; } });
+  (q.machines||[]).forEach(r => { if (r.machine && MACHINE_RATES[r.machine]) { const mr=MACHINE_RATES[r.machine]; r.rate=mr.hour||mr||0; r.setup=mr.setup||0; } });
+  (q.laser||[]).forEach(r => { if (r.tipo === 'Taglio Laser Esterno') { const um = r.um||'kg'; const p = LASER_EXT_RATES[um]; if (p !== undefined && p > 0) r.priceExt = p; } });
+  (q.tubo||[]).forEach(r => {
+    if (r.tipo === 'Taglio Tubo Esterno' || r.tipo === 'Taglio Sega') { const p = TUBO_EXT_RATES[r.um||'kg']; if (p !== undefined && p > 0) r.priceExt = p; }
+    if (r.tipo === 'Taglio Tubo Interno' || r.tipo === 'Taglio Sega') { if (TUBO_INT_RATE > 0) r.rate = TUBO_INT_RATE; }
+  });
+  (q.treat||[]).forEach(r => { if (r.type && TREAT_RATES[r.type] !== undefined) { r.rate = TREAT_RATES[r.type]; r.um = TREAT_UMS[r.type] || r.um; r.setup = TREAT_SETUP[r.type]||0; } });
+  (q.transport||[]).forEach(r => { if (r.vehicle && TRANSPORT_RATES[r.vehicle]) { r.ammKm = TRANSPORT_RATES[r.vehicle].ammKm; r.driverRate = TRANSPORT_RATES[r.vehicle].driverRate; } });
+  (q.fixed||[]).forEach(r => { if (r.type && FIXED_RATES[r.type] !== undefined) r.amount = FIXED_RATES[r.type]; });
+}
+
+function reloadRatesFromStorage() {
+  // Reload all rate tables from localStorage so prices are always current
+  const mr = JSON.parse(localStorage.getItem('ppro_material_rates')||'null')||{};
+  Object.keys(MATERIAL_RATES).forEach(k => { if (mr[k]) Object.assign(MATERIAL_RATES[k], mr[k]); });
+
+  const lr = JSON.parse(localStorage.getItem('ppro_labor_rates')||'null')||{};
+  Object.keys(LABOR_RATES).forEach(k => { if (lr[k]) Object.assign(LABOR_RATES[k], lr[k]); });
+
+  const pr = JSON.parse(localStorage.getItem('ppro_piazzamento_rates')||'null')||{};
+  Object.keys(PIAZZAMENTO_RATES).forEach(k => { if (pr[k] !== undefined) PIAZZAMENTO_RATES[k] = pr[k]; });
+
+  const mcr = JSON.parse(localStorage.getItem('ppro_machine_rates')||'null')||{};
+  Object.keys(MACHINE_RATES).forEach(k => { if (mcr[k]) Object.assign(MACHINE_RATES[k], mcr[k]); });
+
+  const ler = JSON.parse(localStorage.getItem('ppro_laser_ext_rates')||'null')||{};
+  Object.keys(LASER_EXT_RATES).forEach(k => { if (ler[k] !== undefined) LASER_EXT_RATES[k] = ler[k]; });
+
+  const ter = JSON.parse(localStorage.getItem('ppro_tubo_ext_rates')||'null')||{};
+  Object.keys(TUBO_EXT_RATES).forEach(k => { if (ter[k] !== undefined) TUBO_EXT_RATES[k] = ter[k]; });
+  const tir = +(localStorage.getItem('ppro_tubo_int_rate')||0);
+  if (tir) TUBO_INT_RATE = tir;
+  const pir = +(localStorage.getItem('ppro_piega_rate')||0);
+  if (pir) PIEGA_RATE = pir;
+  const sir = +(localStorage.getItem('ppro_saldatura_rate')||0);
+  if (sir) SALDATURA_RATE = sir;
+}
+
+function fillForm(q) {
+  reloadRatesFromStorage();
+  syncPricesFromRates(q);
+  sv('f_client',q.client); sv('f_code',q.code); sv('f_date',q.date);
+  sv('f_qty',q.qty); sv('f_notes',q.notes);
+  sv('f_overhead',q.overhead); sv('f_margin',q.margin); sv('f_discount',q.discount||0);
+  document.getElementById('f_um').value=q.um||'pz';
+  setImgPreview(q.image||null);
+  ensureRows(draft); renderMaterials(draft); renderPiazzamento(draft); renderTubo(draft); renderPiega(draft); renderSaldatura(draft); renderLabor(draft); renderMachines(draft); renderLaser(draft); renderTreat(draft); renderTransport(draft); renderExtra(draft); renderFixed(draft); recalc();
+  document.getElementById('savedIndicator').classList.remove('hidden');
+  document.getElementById('saveIndicator').classList.add('hidden');
+}
+function sv(id,val) { const el=document.getElementById(id); if(el) el.value=val||''; }
+
+
+// IMAGE UPLOAD
+function handleImgDrop(e) {
+  e.preventDefault();
+  document.getElementById('imgDropZone').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file && (file.type.startsWith('image/') || file.type === 'application/pdf')) handleImgFile(file);
+}
+function handleImgFile(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    draft.image = dataUrl;
+    draft._imgType = file.type === 'application/pdf' ? 'pdf' : 'image';
+    setImgPreview(dataUrl);
+    markUnsaved();
+  };
+  reader.readAsDataURL(file);
+}
+function setImgPreview(src) {
+  const zone = document.getElementById('imgDropZone');
+  const placeholder = document.getElementById('imgDropPlaceholder');
+  const wrap = document.getElementById('imgPreviewWrap');
+  const img = document.getElementById('imgPreview');
+  const pdf = document.getElementById('pdfPreview');
+  if (!zone) return;
+  if (src) {
+    const isPdf = src.startsWith('data:application/pdf') || src.startsWith('blob:') && draft && draft._imgType === 'pdf';
+    img.style.display = isPdf ? 'none' : 'block';
+    pdf.style.display = isPdf ? 'block' : 'none';
+    if (isPdf) { pdf.src = src; img.src = ''; }
+    else { img.src = src; pdf.src = ''; }
+    placeholder.classList.add('hidden');
+    wrap.classList.remove('hidden');
+    wrap.style.display = 'flex';
+    zone.classList.add('has-image');
+  } else {
+    img.src = ''; pdf.src = '';
+    img.style.display = 'none'; pdf.style.display = 'none';
+    placeholder.classList.remove('hidden');
+    wrap.classList.add('hidden');
+    wrap.style.display = 'none';
+    zone.classList.remove('has-image');
+  }
+}
+function removeImg() {
+  draft.image = null;
+  draft._imgType = null;
+  setImgPreview(null);
+  markUnsaved();
+}
+
+// META
+function updateMeta() {
+  if(!draft) return;
+  draft.code=document.getElementById('f_code').value;
+  draft.name=draft.code||'Senza nome';
+  draft.client=document.getElementById('f_client').value;
+  draft.date=document.getElementById('f_date').value;
+  draft.qty=+document.getElementById('f_qty').value||1;
+  draft.um=document.getElementById('f_um').value;
+  draft.notes=document.getElementById('f_notes').value;
+  draft.overhead=+document.getElementById('f_overhead').value||0;
+  draft.margin=+document.getElementById('f_margin').value||0;
+  draft.discount=+document.getElementById('f_discount').value||0;
+  markUnsaved();
+}
+
+let deleteMode = false;
+let selectedIds = new Set();
+
+function toggleDeleteMode() {
+  deleteMode = !deleteMode;
+  selectedIds.clear();
+  renderGrid();
+  renderDeleteBar();
+}
+
+// ── EXPORT MODE ──
+let exportMode = false;
+let _editorOrigin = "page-home";
+const exportIds = new Set();
+
+function toggleExportMode() {
+  exportMode = !exportMode;
+  exportIds.clear();
+  if (exportMode && deleteMode) { deleteMode = false; renderDeleteBar(); }
+  renderGrid();
+  document.getElementById('exportBar').classList.toggle('hidden', !exportMode);
+  updateExportBar();
+}
+
+function updateExportBar() {
+  document.getElementById('exportCount').textContent = exportIds.size;
+  document.getElementById('confirmExportBtn').disabled = exportIds.size < 1;
+}
+
+function toggleExportSelect(id) {
+  if (exportIds.has(id)) exportIds.delete(id); else exportIds.add(id);
+  document.querySelectorAll('.qcard').forEach(card => {
+    if (card.dataset.id) card.classList.toggle('export-selected', exportIds.has(card.dataset.id));
+  });
+  updateExportBar();
+}
+
+function selectAllExport() {
+  document.querySelectorAll('.qcard').forEach(card => { if (card.dataset.id) { exportIds.add(card.dataset.id); card.classList.add('export-selected'); } });
+  updateExportBar();
+}
+
+function exportExcel() {
+  const selected = quotes.filter(q => exportIds.has(q.id));
+  if (!selected.length) return;
+  const rows = selected.map(q => ({
+    'Codice': q.code || '',
+    'Quantità': q.qty || 1,
+    'Totale (€)': +calcTotal(q).toFixed(2)
+  }));
+  const ws = XLSX.utils.json_to_sheet(rows);
+  ws['!cols'] = [{wch:16},{wch:12},{wch:14}];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Preventivi');
+  XLSX.writeFile(wb, `preventivi_${new Date().toISOString().slice(0,10)}.xlsx`);
+  showToast(`✅ Excel generato con ${selected.length} preventiv${selected.length===1?'o':'i'}`);
+  toggleExportMode();
+}
+
+function renderDeleteBar() {
+  const bar = document.getElementById('deleteBar');
+  if (deleteMode) {
+    bar.classList.remove('hidden');
+  } else {
+    bar.classList.add('hidden');
+  }
+  updateDeleteBar();
+}
+
+function updateDeleteBar() {
+  document.getElementById('deleteCount').textContent = selectedIds.size;
+  document.getElementById('confirmDeleteBtn').disabled = selectedIds.size === 0;
+}
+
+function toggleSelect(id) {
+  if (selectedIds.has(id)) selectedIds.delete(id);
+  else selectedIds.add(id);
+  // update just the card appearance and counter
+  document.querySelectorAll('.qcard').forEach(card => {
+    const cid = card.dataset.id;
+    if (cid) card.classList.toggle('selected', selectedIds.has(cid));
+  });
+  updateDeleteBar();
+}
+
+function selectAll() {
+  const grid = document.getElementById('quotesGrid');
+  grid.querySelectorAll('.qcard').forEach(card => { if (card.dataset.id) selectedIds.add(card.dataset.id); });
+  document.querySelectorAll('.qcard').forEach(card => { if (card.dataset.id) card.classList.add('selected'); });
+  updateDeleteBar();
+}
+
+function confirmDelete() {
+  if (selectedIds.size === 0) return;
+  if (!confirm(`Eliminare ${selectedIds.size} preventiv${selectedIds.size===1?'o':'i'}?`)) return;
+  quotes = quotes.filter(q => !selectedIds.has(q.id));
+  saveAll(); selectedIds.clear(); deleteMode = false;
+  renderGrid(); renderDeleteBar(); updateHomeStats();
+}
+
+function deleteAll() {
+  if (quotes.length === 0) return;
+  if (!confirm(`Eliminare tutti i ${quotes.length} preventivi? L'operazione è irreversibile.`)) return;
+  quotes = []; saveAll(); selectedIds.clear(); deleteMode = false;
+  renderGrid(); renderDeleteBar(); updateHomeStats();
+}
+const MATS=['Aisi 304','Aisi 316','Alluminio 6060','Alluminio 7075','Commerciale','Ferro S235 JR','Ferro S355 JR','Ghisa','Nylon','Ottone','Plastica','Rame','Titanio','Altro'];
+const UMS=['kg','g','mm','cm','m','m²','m³','pz','lt'];
+function addMaterial(){draft.materials.push({id:uid(),desc:'',mat:'',qty:0,um:'kg',price:0,scrap:0});markUnsaved();renderMaterials(draft);recalc();}
+function delMat(id){draft.materials=draft.materials.filter(x=>x.id!==id);markUnsaved();renderMaterials(draft);recalc();}
+function updMatText(id,f,v){draft.materials.find(x=>x.id===id)[f]=v;markUnsaved();}
+function updMat(id,f,v){
+  const row = (draft.materials||[]).find(x=>x.id===id);
+  if(!row) return;
+  row[f]=f==='qty'||f==='price'||f==='scrap'?+v:v;
+  // auto-fill price when mat changes
+  if(f==='mat' && MATERIAL_RATES[row.mat]) {
+    const um = row.um || 'kg';
+    const p = MATERIAL_RATES[row.mat][um] ?? MATERIAL_RATES[row.mat]['kg'] ?? 0;
+    if(p !== undefined && p > 0) row.price = p;
+  }
+  if(f==='um' && row.mat && MATERIAL_RATES[row.mat]) {
+    const p = MATERIAL_RATES[row.mat][row.um] ?? 0;
+    row.price = p;
+  }
+  markUnsaved(); renderMaterials(draft); recalc(); return;
+}
+function renderMaterials(q){
+  document.getElementById('materialsBody').innerHTML=(q.materials||[]).map(r=>`<tr>
+    <td><select style="width:100%" onchange="updMat('${r.id}','matPrima',this.value)"><option value="">— seleziona —</option><option ${r.matPrima==='Lamiera'?'selected':''}>Lamiera</option><option ${r.matPrima==='Tubo'?'selected':''}>Tubo</option><option ${r.matPrima==='Tubolare'?'selected':''}>Tubolare</option><option ${r.matPrima==='Tondo'?'selected':''}>Tondo</option><option ${r.matPrima==='Quadro'?'selected':''}>Quadro</option><option ${r.matPrima==='Piatto laminato'?'selected':''}>Piatto laminato</option><option ${r.matPrima==='Piatto trafilato'?'selected':''}>Piatto trafilato</option><option ${r.matPrima==='Altro'?'selected':''}>Altro</option></select></td>
+    <td><input type="text" style="width:100%" value="${esc(r.desc)}" placeholder="es. Barra ⌀80" oninput="updMatText('${r.id}','desc',this.value)"></td>
+    <td><select style="width:100%" onchange="updMat('${r.id}','mat',this.value)"><option value="">— seleziona —</option>${MATS.map(m=>`<option ${m===r.mat?'selected':''}>${m}</option>`).join('')}</select></td>
+    <td><select style="width:100%" onchange="updMat('${r.id}','um',this.value)"><option ${(r.um||'kg')==='kg'?'selected':''}>kg</option><option ${r.um==='m'?'selected':''}>m</option></select></td>
+    <td><input type="number" value="${r.qty}" min="0" step="0.01" style="width:100%" onchange="updMat('${r.id}','qty',+this.value)" onfocus="this.select()"></td>
+    <td><input type="number" value="${r.price}" min="0" step="0.01" style="width:100%" onchange="updMat('${r.id}','price',+this.value)" onfocus="this.select()"></td>
+    <td class="tr-tot">${fmt(r.qty*r.price)}</td>
+    <td><button class="btn-icon" onclick="delMat('${r.id}')">🗑</button></td>
+  </tr>`).join('');
+}
+
+// PIAZZAMENTO
+function addPiazzamento(){
+  if(!draft.piazzamento) draft.piazzamento=[];
+  draft.piazzamento.push({id:uid(),operator:'',minutes:0,rate:0});
+  markUnsaved();renderPiazzamento(draft);recalc();
+}
+function delPiazzamento(id){draft.piazzamento=draft.piazzamento.filter(x=>x.id!==id);markUnsaved();renderPiazzamento(draft);recalc();}
+function updPiazzamento(id,f,v){
+  if(!draft.piazzamento) draft.piazzamento=[];
+  const row=draft.piazzamento.find(x=>x.id===id);
+  if(!row) return;
+  row[f]=f==='minutes'||f==='rate'?+v:v;
+  if(f==='operator' && PIAZZAMENTO_RATES[v] !== undefined && PIAZZAMENTO_RATES[v] > 0) {
+    row.rate = PIAZZAMENTO_RATES[v];
+  }
+  markUnsaved();renderPiazzamento(draft);recalc();
+}
+function renderPiazzamento(q){
+  const rows=q.piazzamento||[];
+  const qty = Math.max(1, +document.getElementById('f_qty')?.value || q.qty || 1);
+  document.getElementById('piazzamentoBody').innerHTML=rows.length===0
+    ?'<tr><td colspan="6" style="text-align:center;color:var(--muted);font-size:13px;padding:12px;">Nessuna voce</td></tr>'
+    :rows.map(r=>{
+      const tot = ((r.minutes||0)/60*(r.rate||0)) / (qty > 0 ? qty : 1);
+      return `<tr>
+    <td><select style="width:100%" onchange="updPiazzamento('${r.id}','operator',this.value)"><option value="">— seleziona —</option>${OPS.map(o=>`<option ${o===r.operator?'selected':''}>${o}</option>`).join('')}</select></td>
+    <td><input type="text" value="${r.desc||''}" placeholder="Descrizione…" style="width:100%" onchange="updPiazzamento('${r.id}','desc',this.value)"></td>
+    <td><input type="number" value="${r.minutes||0}" min="0" step="1" style="width:100%" onchange="updPiazzamento('${r.id}','minutes',+this.value)" onfocus="this.select()"></td>
+    <td><input type="number" value="${r.rate||0}" min="0" step="0.5" style="width:100%" onchange="updPiazzamento('${r.id}','rate',+this.value)" onfocus="this.select()"></td>
+    <td class="tr-tot">${fmt(tot)}</td>
+    <td><button class="btn-icon" onclick="delPiazzamento('${r.id}')">🗑</button></td>
+  </tr>`;}).join('');
+}
+
+// LABOR
+const LABOR_OPS = ['','Filettatura esterna','Filettatura interna','Foratura','Fresatura esterna','Fresatura interna','Piegatura esterna','Piegatura interna','Sbavatura/Satinatura','Svasatura','Tornitura esterna','Tornitura interna','Altro'];
+const OPS=['Fresatore','Montatore','Operaio','Piegatore','Progettista','Saldatore','Sviluppatore','Tornitore','Altro'];
+
+// DEFAULT LABOR RATES (€/ora, stored as cpm internally)
+const DEFAULT_LABOR_RATES = {
+  'Operaio':      {cpm:0.50, cph:30, setup:0},
+  'Fresatore':    {cpm:0.65, setup:0},
+  'Tornitore':    {cpm:0.65, setup:0},
+  'Piegatore':    {cpm:0.58, setup:0},
+  'Montatore':    {cpm:0.58, setup:0},
+  'Tecnico':      {cpm:0.75, setup:0},
+  'Programmatore':{cpm:0.80, setup:0},
+  'Saldatore':    {cpm:0.65, setup:0},
+  'Capo Reparto': {cpm:0.90, setup:0}
+};
+// Migrate flat labor rates
+(function(){
+  const saved = JSON.parse(localStorage.getItem('ppro_labor_rates')||'null')||{};
+  const migrated = {};
+  OPS.forEach(op => {
+    const def = DEFAULT_LABOR_RATES[op] || {cpm:0.5, setup:0};
+    if (saved[op] && typeof saved[op] === 'object') migrated[op] = Object.assign({}, def, saved[op]);
+    else if (saved[op] && typeof saved[op] === 'number') migrated[op] = {cpm: saved[op], setup: def.setup};
+    else migrated[op] = Object.assign({}, def);
+  });
+  window._LABOR_RATES_INIT = migrated;
+})();
+const LABOR_RATES = window._LABOR_RATES_INIT || JSON.parse(JSON.stringify(DEFAULT_LABOR_RATES));
+
+// ── FILETTATURA INTERNA per fascia ──
+const FILETT_TIPI = ['Fino a M4', 'Da M5 a M10', 'Da M12 a M36', 'Tempo'];
+(function(){
+  window._FILETT_RATES_INIT = JSON.parse(localStorage.getItem('ppro_filett_rates')||'null') || {
+    'Fino a M4':      {eurPerForo: 0},
+    'Da M5 a M10':    {eurPerForo: 0},
+    'Da M12 a M36':   {eurPerForo: 0}
+  };
+})();
+const FILETT_RATES = window._FILETT_RATES_INIT;
+function saveFilettRates(andClose) {
+  localStorage.setItem('ppro_filett_rates', JSON.stringify(FILETT_RATES));
+  gsSaveParametri();
+  showToast('Tariffe filettatura salvate ✓');
+  if (andClose) window.close();
+}
+
+function toggleLaborRates(e) {
+  e.stopPropagation();
+  const dropdown = document.getElementById('laborRatesDropdown');
+  const title = document.getElementById('laborRatesTitle');
+  const isOpen = dropdown.classList.contains('open');
+  // close on outside click
+  if (!isOpen) {
+    renderLaborRatesList();
+    dropdown.classList.add('open');
+    title.classList.add('open');
+    setTimeout(() => document.addEventListener('click', closeLaborRates, {once:true}), 10);
+  } else {
+    closeLaborRates();
+  }
+}
+function closeLaborRates() {
+  document.getElementById('laborRatesDropdown').classList.remove('open');
+  document.getElementById('laborRatesTitle').classList.remove('open');
+}
+function renderLaborRatesList() {
+  document.getElementById('laborRatesList').innerHTML = OPS.map(op => `
+    <div class="labor-rate-row">
+      <span class="labor-rate-label">${op}</span>
+      <input type="number" value="${(LABOR_RATES[op]||{}).cpm||0}" min="0" step="0.01"
+        onchange="LABOR_RATES['${op}'] = LABOR_RATES['${op}']||{}; LABOR_RATES['${op}'].cpm=+this.value; saveLaborRates()" onfocus="this.select()">
+      <span class="un">€/ora</span>
+    </div>
+  `).join('');
+}
+
+function addLabor(){draft.labor.push({id:uid(),op:'',operator:'',minutes:0,rate:0,addetti:1});markUnsaved();renderLabor(draft);recalc();}
+function delLab(id){draft.labor=draft.labor.filter(x=>x.id!==id);markUnsaved();renderLabor(draft);recalc();}
+function updLabText(id,f,v){const row=draft.labor.find(x=>x.id===id);row[f]=v;if(f==='op'){markUnsaved();renderLabor(draft);recalc();}else{markUnsaved();}}
+function updLab(id,f,v){const row=draft.labor.find(x=>x.id===id);row[f]=v;if(f==='operator'&&LABOR_RATES[v]){row.rate=LABOR_RATES[v].cpm||LABOR_RATES[v]||0;row.setup=LABOR_RATES[v].setup||0;}markUnsaved();renderLabor(draft);recalc();}
+const LABOR_INT_OPS = new Set(['Filettatura esterna','Fresatura esterna','Piegatura esterna','Tornitura esterna']);
+function filettTotal(r) {
+  if (r.fascia === 'Tempo') {
+    // minuti × €/ora
+    return (r.minutes||0) / 60 * (r.rateOra||0);
+  }
+  // N° fori × €/foro
+  return (r.nFori||0) * (r.rateOra||0);
+}
+function updLabFilettFigura(id, v) {
+  const row = draft.labor.find(x=>x.id===id);
+  if (!row) return;
+  row.operator = v;
+  // auto-fill €/ora from figura when Tempo is selected
+  if (row.fascia === 'Tempo' && v && LABOR_RATES[v]) {
+    row.rateOra = (LABOR_RATES[v].cpm || 0) * 60;
+  }
+  markUnsaved(); renderLabor(draft); recalc();
+}
+function updLabFilett(id, f, v) {
+  const row = draft.labor.find(x=>x.id===id);
+  if (!row) return;
+  row[f] = v;
+  // when tipo changes, auto-fill the rate
+  if (f === 'fascia') {
+    if (v === 'Tempo') {
+      // auto-fill €/ora from figura
+      if (row.operator && LABOR_RATES[row.operator]) {
+        row.rateOra = (LABOR_RATES[row.operator].cpm || 0) * 60;
+      } else {
+        row.rateOra = 0;
+      }
+    } else if (FILETT_RATES[v]) {
+      // auto-fill €/foro from params
+      row.rateOra = FILETT_RATES[v].eurPerForo || 0;
+    }
+  }
+  markUnsaved(); renderLabor(draft); recalc();
+}
+
+function renderLabor(q){
+  const rows = q.labor || [];
+  const head = document.getElementById('laborHead');
+  const cols = document.getElementById('laborCols');
+  const firstExt = rows.find(r => LABOR_INT_OPS.has(r.op));
+  const firstInt = rows.find(r => r.op && !LABOR_INT_OPS.has(r.op));
+  const firstFilett = rows.find(r => r.op === 'Filettatura interna');
+  // Use first typed row to decide header; prefer external if mixed
+  const hasAny = rows.some(r => r.op);
+  if (head) {
+    if (!hasAny) {
+      head.innerHTML = '<tr><th style="text-align:center">Operazione</th></tr>';
+      if (cols) cols.innerHTML = '<col style="width:auto">';
+    } else if (firstExt) {
+      head.innerHTML = '<tr><th style="text-align:center">Operazione</th><th style="text-align:center">Descrizione</th><th colspan="3"></th><th style="text-align:center">Costo €</th><th style="text-align:right">Tot.</th><th></th></tr>';
+      if (cols) cols.innerHTML = '<col style="width:auto"><col style="width:auto"><col style="width:0"><col style="width:0"><col style="width:0"><col style="width:110px"><col style="width:80px"><col style="width:36px">';
+    } else if (firstFilett) {
+      const isTempo = firstFilett.fascia === 'Tempo';
+      head.innerHTML = `<tr><th style="text-align:center">Operazione</th><th style="text-align:center">Figura</th><th style="text-align:center">Tipo</th><th style="text-align:center">${isTempo ? 'Minuti' : 'N° fori'}</th><th style="text-align:center">${isTempo ? '€/ora' : '€/foro'}</th><th style="text-align:right">Tot.</th><th></th></tr>`;
+      if (cols) cols.innerHTML = '<col style="width:auto"><col style="width:auto"><col style="width:auto"><col style="width:80px"><col style="width:90px"><col style="width:80px"><col style="width:36px">';
+    } else {
+      head.innerHTML = '<tr><th style="text-align:center">Operazione</th><th style="text-align:center">Figura</th><th style="text-align:center">Minuti</th><th style="text-align:center">€/ora</th><th style="text-align:center">Addetti</th><th style="text-align:right">Tot.</th><th></th></tr>';
+      if (cols) cols.innerHTML = '<col style="width:auto"><col style="width:auto"><col style="width:90px"><col style="width:90px"><col style="width:90px"><col style="width:80px"><col style="width:36px">';
+    }
+  }
+  document.getElementById('laborBody').innerHTML=rows.map(r=>{
+    const isExt = LABOR_INT_OPS.has(r.op);
+    const isFilettInt = r.op === 'Filettatura interna';
+    const opSel = `<select style="width:100%" onchange="updLabText('${r.id}','op',this.value)"><option value="">— seleziona —</option>${LABOR_OPS.filter(o=>o).map(o=>`<option ${o===r.op?'selected':''}>${o}</option>`).join('')}</select>`;
+    if (!r.op) {
+      return `<tr><td colspan="7">${opSel}</td></tr>`;
+    }
+    if (isExt) {
+      return `<tr>
+        <td>${opSel}</td>
+        <td colspan="4"><input type="text" value="${r.desc||''}" placeholder="Descrizione…" style="width:100%" onchange="updLabText('${r.id}','desc',this.value)"></td>
+        <td><input type="number" value="${r.cost||0}" min="0" step="0.01" style="width:100%" onchange="updLab('${r.id}','cost',+this.value)" onfocus="this.select()"></td>
+        <td class="tr-tot">${fmt(r.cost||0)}</td>
+        <td><button class="btn-icon" onclick="delLab('${r.id}')">🗑</button></td>
+      </tr>`;
+    }
+    if (isFilettInt) {
+      const tipoSel = `<select style="width:100%" onchange="updLabFilett('${r.id}','fascia',this.value)"><option value="">— seleziona —</option>${FILETT_TIPI.map(t=>`<option ${t===(r.fascia||'')?'selected':''}>${t}</option>`).join('')}</select>`;
+      const figSel = `<select style="width:100%" onchange="updLabFilettFigura('${r.id}',this.value)"><option value="">— seleziona —</option>${OPS.map(o=>`<option ${o===(r.operator||'')?'selected':''}>${o}</option>`).join('')}</select>`;
+      const isTempo = r.fascia === 'Tempo';
+      const tot = filettTotal(r);
+      return `<tr>
+        <td>${opSel}</td>
+        <td>${figSel}</td>
+        <td>${tipoSel}</td>
+        <td><input type="number" value="${isTempo ? (r.minutes||0) : (r.nFori||0)}" min="0" step="${isTempo?1:1}" style="width:100%" placeholder="${isTempo?'Minuti':'N° fori'}" onchange="updLabFilett('${r.id}','${isTempo?'minutes':'nFori'}',+this.value)" onfocus="this.select()"></td>
+        <td><input type="number" value="${r.rateOra||0}" min="0" step="0.01" style="width:100%;background:#f8faff;color:var(--accent);" readonly title="${isTempo?'€/ora dalla figura':'€/foro dai parametri'}" onfocus="this.select()"></td>
+        <td class="tr-tot">${fmt(tot)}</td>
+        <td><button class="btn-icon" onclick="delLab('${r.id}')">🗑</button></td>
+      </tr>`;
+    }
+    return `<tr>
+      <td>${opSel}</td>
+      <td><select style="width:100%" onchange="updLab('${r.id}','operator',this.value)"><option value="">— seleziona —</option>${OPS.map(o=>`<option ${o===r.operator?'selected':''}>${o}</option>`).join('')}</select></td>
+      <td><input type="number" value="${r.minutes??r.hours*60??60}" min="0" step="1" style="width:100%" onchange="updLab('${r.id}','minutes',+this.value)" onfocus="this.select()"></td>
+      <td><input type="number" value="${+((r.rate||0)*60).toFixed(2)}" min="0" step="0.5" style="width:100%" onchange="updLab('${r.id}','rate',+this.value/60)" onfocus="this.select()"></td>
+      <td><input type="number" value="${r.addetti}" min="1" step="1" style="width:100%" onchange="updLab('${r.id}','addetti',+this.value)" onfocus="this.select()"></td>
+      <td class="tr-tot">${fmt((r.minutes??r.hours*60??0)*r.rate*r.addetti)}</td>
+      <td><button class="btn-icon" onclick="delLab('${r.id}')">🗑</button></td>
+    </tr>`;
+  }).join('');
+}
+
+// MACHINES
+const CUT_TYPES=['Taglio Laser Interno','Taglio Laser Esterno'];
+const MCHS=['Fresatrice','Piegatrice','Saldatura MIG','Saldatura TIG','Tornio','Trapano','Altro'];
+function addMachine(){draft.machines.push({id:uid(),machine:'',op:'',hours:0,rate:0,setup:0});markUnsaved();renderMachines(draft);recalc();}
+function delMac(id){draft.machines=draft.machines.filter(x=>x.id!==id);markUnsaved();renderMachines(draft);recalc();}
+function updMacText(id,f,v){draft.machines.find(x=>x.id===id)[f]=v;markUnsaved();}
+function updMac(id,f,v){const row=draft.machines.find(x=>x.id===id);row[f]=v;if(f==='machine'&&MACHINE_RATES[v]){row.rate=MACHINE_RATES[v].hour||MACHINE_RATES[v]||0;row.setup=MACHINE_RATES[v].setup||0;}markUnsaved();renderMachines(draft);recalc();}
+function renderMachines(q){
+  const rows=q.machines||[];
+  document.getElementById('machinesBody').innerHTML=rows.map(r=>`<tr>
+    <td><select style="width:100%" onchange="updMac('${r.id}','machine',this.value)"><option value="">— seleziona —</option>${MCHS.map(m=>`<option ${m===r.machine?'selected':''}>${m}</option>`).join('')}</select></td>
+    <td><input type="text" value="${esc(r.op)}" placeholder="Descrizione…" style="width:100%" oninput="updMacText('${r.id}','op',this.value)"></td>
+    <td><input type="number" value="${r.minutes??Math.round(r.hours*60)??0}" min="0" step="1" style="width:100%" onchange="updMac('${r.id}','minutes',+this.value)" onfocus="this.select()"></td>
+    <td><input type="number" value="${r.rate}" min="0" step="1" style="width:100%" onchange="updMac('${r.id}','rate',+this.value)" onfocus="this.select()"></td>
+    <td class="tr-tot">${fmt((r.minutes!=null?r.minutes:r.hours*60)/60*r.rate)}</td>
+    <td><button class="btn-icon" onclick="delMac('${r.id}')">🗑</button></td>
+  </tr>`).join('');
+  ss('tot_machines_only', fmt(rows.reduce((s,r)=>s+(r.minutes!=null?r.minutes:r.hours*60)/60*r.rate,0)));
+}
+
+
+// LASER TABLE (from Excel)
+const LASER_TABLE = [
+  {"mat":"Ferro","gas":"Aria","sp":1,"vel":32500,"cpm":3.306,"cpm_m":0.101723},
+  {"mat":"Ferro","gas":"Aria","sp":1.5,"vel":20000,"cpm":3.4205,"cpm_m":0.171025},
+  {"mat":"Ferro","gas":"Aria","sp":2,"vel":10000,"cpm":3.458167,"cpm_m":0.345817},
+  {"mat":"Ferro","gas":"Aria","sp":3,"vel":10000,"cpm":3.525833,"cpm_m":0.352583},
+  {"mat":"Ferro","gas":"Aria","sp":4,"vel":18000,"cpm":3.605333,"cpm_m":0.200296},
+  {"mat":"Ferro","gas":"Aria","sp":5,"vel":5000,"cpm":3.605333,"cpm_m":0.721067},
+  {"mat":"Ferro","gas":"Aria","sp":6,"vel":12500,"cpm":3.605333,"cpm_m":0.288427},
+  {"mat":"Ferro","gas":"Aria","sp":8,"vel":10000,"cpm":3.605333,"cpm_m":0.360533},
+  {"mat":"Ferro","gas":"Aria","sp":10,"vel":6000,"cpm":3.833833,"cpm_m":0.638972},
+  {"mat":"Alluminio","gas":"Aria","sp":1,"vel":38000,"cpm":3.306,"cpm_m":0.087},
+  {"mat":"Alluminio","gas":"Aria","sp":1.5,"vel":35000,"cpm":3.3115,"cpm_m":0.094614},
+  {"mat":"Alluminio","gas":"Aria","sp":2,"vel":22000,"cpm":3.3115,"cpm_m":0.150523},
+  {"mat":"Alluminio","gas":"Aria","sp":3,"vel":22000,"cpm":3.525833,"cpm_m":0.160265},
+  {"mat":"Alluminio","gas":"Aria","sp":4,"vel":30000,"cpm":3.619833,"cpm_m":0.120661},
+  {"mat":"Alluminio","gas":"Aria","sp":5,"vel":25000,"cpm":3.619833,"cpm_m":0.144793},
+  {"mat":"Alluminio","gas":"Aria","sp":6,"vel":10000,"cpm":3.619833,"cpm_m":0.361983},
+  {"mat":"Alluminio","gas":"Aria","sp":8,"vel":7500,"cpm":3.833833,"cpm_m":0.511178},
+  {"mat":"Alluminio","gas":"Aria","sp":10,"vel":4300,"cpm":3.833833,"cpm_m":0.891589},
+  {"mat":"Alluminio","gas":"Aria","sp":12,"vel":5000,"cpm":3.880333,"cpm_m":0.776067},
+  {"mat":"Alluminio","gas":"Aria","sp":15,"vel":1500,"cpm":3.880333,"cpm_m":2.586889},
+  {"mat":"Alluminio","gas":"Aria","sp":20,"vel":1200,"cpm":3.926667,"cpm_m":3.272222},
+  {"mat":"Alluminio","gas":"Aria","sp":25,"vel":700,"cpm":3.880333,"cpm_m":5.543333},
+  {"mat":"Alluminio","gas":"Aria","sp":30,"vel":300,"cpm":3.926667,"cpm_m":13.088889},
+  {"mat":"Inox","gas":"Azoto","sp":1,"vel":40000,"cpm":3.5815,"cpm_m":0.089538},
+  {"mat":"Inox","gas":"Azoto","sp":1.5,"vel":35000,"cpm":3.587667,"cpm_m":0.102505},
+  {"mat":"Inox","gas":"Azoto","sp":2,"vel":23000,"cpm":3.621167,"cpm_m":0.157442},
+  {"mat":"Inox","gas":"Azoto","sp":3,"vel":20000,"cpm":4.371667,"cpm_m":0.218583},
+  {"mat":"Inox","gas":"Azoto","sp":4,"vel":17000,"cpm":4.39,"cpm_m":0.258235},
+  {"mat":"Inox","gas":"Azoto","sp":5,"vel":19000,"cpm":4.45,"cpm_m":0.234211},
+  {"mat":"Inox","gas":"Azoto","sp":6,"vel":14000,"cpm":4.45,"cpm_m":0.317857},
+  {"mat":"Inox","gas":"Azoto","sp":8,"vel":7000,"cpm":4.45,"cpm_m":0.635714},
+  {"mat":"Inox","gas":"Azoto","sp":10,"vel":6300,"cpm":4.45,"cpm_m":0.706349},
+  {"mat":"Inox","gas":"Azoto","sp":12,"vel":4300,"cpm":4.758667,"cpm_m":1.106667},
+  {"mat":"Inox","gas":"Azoto","sp":15,"vel":2000,"cpm":5.737,"cpm_m":2.8685},
+  {"mat":"Inox","gas":"Azoto","sp":20,"vel":1700,"cpm":5.737,"cpm_m":3.374706},
+  {"mat":"Inox","gas":"Azoto","sp":25,"vel":1000,"cpm":5.737,"cpm_m":5.737},
+  {"mat":"Inox","gas":"Azoto","sp":30,"vel":400,"cpm":5.737,"cpm_m":14.3425},
+  {"mat":"Ferro","gas":"Ossigeno","sp":5,"vel":2500,"cpm":3.189,"cpm_m":1.2756},
+  {"mat":"Ferro","gas":"Ossigeno","sp":6,"vel":2300,"cpm":3.193667,"cpm_m":1.388551},
+  {"mat":"Ferro","gas":"Ossigeno","sp":8,"vel":2100,"cpm":3.199833,"cpm_m":1.52373},
+  {"mat":"Ferro","gas":"Ossigeno","sp":10,"vel":1900,"cpm":3.226667,"cpm_m":1.698246},
+  {"mat":"Ferro","gas":"Ossigeno","sp":12,"vel":2000,"cpm":3.287667,"cpm_m":1.643833},
+  {"mat":"Ferro","gas":"Ossigeno","sp":15,"vel":1800,"cpm":3.2955,"cpm_m":1.830833},
+  {"mat":"Ferro","gas":"Ossigeno","sp":20,"vel":1200,"cpm":3.317,"cpm_m":2.764167},
+  {"mat":"Ferro","gas":"Ossigeno","sp":25,"vel":900,"cpm":3.364167,"cpm_m":3.737963},
+  {"mat":"Ferro","gas":"Ossigeno","sp":30,"vel":800,"cpm":3.3605,"cpm_m":4.200625},
+  {"mat":"Ferro","gas":"Ossigeno","sp":40,"vel":400,"cpm":3.359333,"cpm_m":8.398333}
+];
+
+
+
+// LASER TABLE EDITOR
+// Original table kept for reset
+const LASER_TABLE_ORIGINAL = JSON.parse(JSON.stringify(LASER_TABLE));
+// Extended table with full params (vel, costo_puro, capannone, operatori, ammort)
+const LASER_FULL = [
+  {"mat":"Ferro","gas":"Aria","sp":1,"vel":32500,"pot":6000,"pres":10,"ugello":2,"costo_puro":14.36,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Aria","sp":1.5,"vel":20000,"pot":6000,"pres":10,"ugello":3,"costo_puro":21.23,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Aria","sp":2,"vel":10000,"pot":6000,"pres":12,"ugello":3,"costo_puro":23.49,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Aria","sp":3,"vel":10000,"pot":8500,"pres":10,"ugello":3.5,"costo_puro":27.55,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Aria","sp":4,"vel":18000,"pot":15000,"pres":10,"ugello":3.5,"costo_puro":32.32,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Aria","sp":5,"vel":5000,"pot":15000,"pres":10,"ugello":3.5,"costo_puro":32.32,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Aria","sp":6,"vel":12500,"pot":15000,"pres":10,"ugello":3.5,"costo_puro":32.32,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Aria","sp":8,"vel":10000,"pot":15000,"pres":10,"ugello":3.5,"costo_puro":32.32,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Aria","sp":10,"vel":6000,"pot":15000,"pres":10,"ugello":5,"costo_puro":46.03,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":1,"vel":38000,"pot":6000,"pres":10,"ugello":2,"costo_puro":14.36,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":1.5,"vel":35000,"pot":6500,"pres":10,"ugello":2,"costo_puro":14.69,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":2,"vel":22000,"pot":6500,"pres":10,"ugello":2,"costo_puro":14.69,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":3,"vel":22000,"pot":8500,"pres":10,"ugello":3.5,"costo_puro":27.55,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":4,"vel":30000,"pot":12000,"pres":12,"ugello":3.5,"costo_puro":33.19,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":5,"vel":25000,"pot":12000,"pres":12,"ugello":3.5,"costo_puro":33.19,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":6,"vel":10000,"pot":15000,"pres":12,"ugello":3.5,"costo_puro":33.19,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":8,"vel":7500,"pot":15000,"pres":10,"ugello":5,"costo_puro":46.03,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":10,"vel":4300,"pot":15000,"pres":10,"ugello":5,"costo_puro":46.03,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":12,"vel":5000,"pot":15000,"pres":11,"ugello":5,"costo_puro":48.82,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":15,"vel":1500,"pot":15000,"pres":11,"ugello":5,"costo_puro":48.82,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":20,"vel":1200,"pot":15000,"pres":12,"ugello":5,"costo_puro":51.6,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":25,"vel":700,"pot":15000,"pres":11,"ugello":5,"costo_puro":48.82,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Alluminio","gas":"Aria","sp":30,"vel":300,"pot":15000,"pres":12,"ugello":5,"costo_puro":51.6,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":1,"vel":40000,"pot":6000,"pres":10,"ugello":2,"costo_puro":30.89,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":1.5,"vel":35000,"pot":6500,"pres":10,"ugello":2,"costo_puro":31.26,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":2,"vel":23000,"pot":6500,"pres":11,"ugello":2,"costo_puro":33.27,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":3,"vel":20000,"pot":8500,"pres":10,"ugello":3.5,"costo_puro":78.3,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":4,"vel":17000,"pot":10000,"pres":10,"ugello":3.5,"costo_puro":79.4,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":5,"vel":19000,"pot":15000,"pres":10,"ugello":3.5,"costo_puro":83,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":6,"vel":14000,"pot":15000,"pres":10,"ugello":3.5,"costo_puro":83,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":8,"vel":7000,"pot":15000,"pres":10,"ugello":3.5,"costo_puro":83,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":10,"vel":6300,"pot":15000,"pres":10,"ugello":3.5,"costo_puro":83,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":12,"vel":4300,"pot":15000,"pres":13,"ugello":3.5,"costo_puro":101.52,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":15,"vel":2000,"pot":15000,"pres":12,"ugello":5,"costo_puro":160.22,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":20,"vel":1700,"pot":15000,"pres":12,"ugello":5,"costo_puro":160.22,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":25,"vel":1000,"pot":15000,"pres":12,"ugello":5,"costo_puro":160.22,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Inox","gas":"Azoto","sp":30,"vel":400,"pot":15000,"pres":12,"ugello":5,"costo_puro":160.22,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Ossigeno","sp":5,"vel":2500,"pot":3000,"pres":0.55,"ugello":1,"costo_puro":7.34,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Ossigeno","sp":6,"vel":2300,"pot":3000,"pres":0.5,"ugello":1.2,"costo_puro":7.62,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Ossigeno","sp":8,"vel":2100,"pot":3500,"pres":0.5,"ugello":1.2,"costo_puro":7.99,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Ossigeno","sp":10,"vel":1900,"pot":6000,"pres":0.3,"ugello":1.2,"costo_puro":9.6,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Ossigeno","sp":12,"vel":2000,"pot":10000,"pres":0.6,"ugello":1.4,"costo_puro":13.26,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Ossigeno","sp":15,"vel":1800,"pot":10000,"pres":0.6,"ugello":1.6,"costo_puro":13.73,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Ossigeno","sp":20,"vel":1200,"pot":12000,"pres":0.5,"ugello":1.6,"costo_puro":15.02,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Ossigeno","sp":25,"vel":900,"pot":15000,"pres":0.9,"ugello":1.6,"costo_puro":17.85,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Ossigeno","sp":30,"vel":800,"pot":15000,"pres":0.75,"ugello":1.6,"costo_puro":17.63,"capannone":30,"operatori":90,"ammort":64},
+  {"mat":"Ferro","gas":"Ossigeno","sp":40,"vel":400,"pot":15000,"pres":0.7,"ugello":1.6,"costo_puro":17.56,"capannone":30,"operatori":90,"ammort":64}
+];
+
+// Load saved laser params from localStorage
+(function() {
+  const saved = JSON.parse(localStorage.getItem('ppro_laser_full') || 'null');
+  if (saved && saved.length === LASER_FULL.length) {
+    saved.forEach((s, i) => { Object.assign(LASER_FULL[i], s); });
+  }
+})();
+
+function calcLaserRow(row) {
+  const cpm = (row.costo_puro + row.capannone + row.operatori + row.ammort) / 60;
+  const cpm_m = row.vel > 0 ? cpm / (row.vel / 1000) : 0;
+  return { cpm: +cpm.toFixed(6), cpm_m: +cpm_m.toFixed(6) };
+}
+
+function syncLaserTable() {
+  LASER_FULL.forEach(row => {
+    const calc = calcLaserRow(row);
+    const idx = LASER_TABLE.findIndex(r => r.mat===row.mat && r.gas===row.gas && r.sp===row.sp);
+    if (idx >= 0) { LASER_TABLE[idx].vel = row.vel; LASER_TABLE[idx].cpm = calc.cpm; LASER_TABLE[idx].cpm_m = calc.cpm_m; }
+  });
+}
+
+function updLaserParam(idx, field, val) {
+  LASER_FULL[idx][field] = val;
+  const calc = calcLaserRow(LASER_FULL[idx]);
+  // update read-only display cells
+  const tr = document.getElementById('laserParamsBody').rows[idx];
+  tr.cells[12].textContent = calc.cpm.toFixed(4);
+  tr.cells[13].textContent = calc.cpm_m.toFixed(6);
+  syncLaserTable();
+  // re-render any open editor laser rows
+  if (draft) { renderLaser(draft); recalc(); }
+}
+
+function renderLaserParams() {
+  const tbody = document.getElementById('laserParamsBody');
+  const matColors = {'Ferro':'#fff7ed','Alluminio':'#eff6ff','Inox':'#f0fdf4'};
+  tbody.innerHTML = LASER_FULL.map((r, i) => {
+    const calc = calcLaserRow(r);
+    return `<tr style="background:${matColors[r.mat]||'#fff'}">
+      <td style="font-size:11px;color:var(--muted);padding:4px 8px">${i+1}</td>
+      <td style="font-weight:600;font-size:12px;padding:4px 6px">${r.mat}</td>
+      <td style="font-size:12px;padding:4px 6px">${r.gas}</td>
+      <td style="font-weight:700;font-size:12px;text-align:center">${r.sp}</td>
+      <td><input type="number" value="${r.vel}" min="0" step="100" style="width:90px" onchange="updLaserParam(${i},'vel',+this.value)" onfocus="this.select()"></td>
+      <td><input type="number" value="${r.pot}" min="0" step="100" style="width:80px" onchange="updLaserParam(${i},'pot',+this.value)" onfocus="this.select()"></td>
+      <td><input type="number" value="${r.pres}" min="0" step="0.05" style="width:100%" onchange="updLaserParam(${i},'pres',+this.value)" onfocus="this.select()"></td>
+      <td><input type="number" value="${r.ugello}" min="0" step="0.5" style="width:100%" onchange="updLaserParam(${i},'ugello',+this.value)" onfocus="this.select()"></td>
+      <td><input type="number" value="${r.costo_puro}" min="0" step="0.01" style="width:80px" onchange="updLaserParam(${i},'costo_puro',+this.value)" onfocus="this.select()"></td>
+      <td><input type="number" value="${r.capannone}" min="0" step="0.5" style="width:74px" onchange="updLaserParam(${i},'capannone',+this.value)" onfocus="this.select()"></td>
+      <td><input type="number" value="${r.operatori}" min="0" step="0.5" style="width:74px" onchange="updLaserParam(${i},'operatori',+this.value)" onfocus="this.select()"></td>
+      <td><input type="number" value="${r.ammort}" min="0" step="0.5" style="width:74px" onchange="updLaserParam(${i},'ammort',+this.value)" onfocus="this.select()"></td>
+      <td style="font-weight:700;color:var(--accent);font-family:monospace;font-size:12px;padding:4px 8px">${calc.cpm.toFixed(4)}</td>
+      <td style="font-weight:700;color:var(--accent);font-family:monospace;font-size:12px;padding:4px 8px">${calc.cpm_m.toFixed(6)}</td>
+    </tr>`;
+  }).join('');
+}
+
+function resetLaserTable() {
+  if (!confirm('Ripristinare tutti i valori originali della tabella laser?')) return;
+  LASER_FULL.forEach((row, i) => {
+    const orig = LASER_TABLE_ORIGINAL[i];
+    if (!orig) return;
+    // restore computed fields - we can't restore full row as original didn't store all fields
+    // just re-render to show current state
+  });
+  // deep reset from hardcoded original
+  const origFull = [
+    {vel:32500,pot:6000,pres:10,ugello:2,costo_puro:14.36,capannone:30,operatori:90,ammort:64},
+    {vel:20000,pot:6000,pres:10,ugello:3,costo_puro:21.23,capannone:30,operatori:90,ammort:64},
+    {vel:10000,pot:6000,pres:12,ugello:3,costo_puro:23.49,capannone:30,operatori:90,ammort:64},
+    {vel:10000,pot:8500,pres:10,ugello:3.5,costo_puro:27.55,capannone:30,operatori:90,ammort:64},
+    {vel:18000,pot:15000,pres:10,ugello:3.5,costo_puro:32.32,capannone:30,operatori:90,ammort:64},
+    {vel:5000,pot:15000,pres:10,ugello:3.5,costo_puro:32.32,capannone:30,operatori:90,ammort:64},
+    {vel:12500,pot:15000,pres:10,ugello:3.5,costo_puro:32.32,capannone:30,operatori:90,ammort:64},
+    {vel:10000,pot:15000,pres:10,ugello:3.5,costo_puro:32.32,capannone:30,operatori:90,ammort:64},
+    {vel:6000,pot:15000,pres:10,ugello:5,costo_puro:46.03,capannone:30,operatori:90,ammort:64},
+    {vel:38000,pot:6000,pres:10,ugello:2,costo_puro:14.36,capannone:30,operatori:90,ammort:64},
+    {vel:35000,pot:6500,pres:10,ugello:2,costo_puro:14.69,capannone:30,operatori:90,ammort:64},
+    {vel:22000,pot:6500,pres:10,ugello:2,costo_puro:14.69,capannone:30,operatori:90,ammort:64},
+    {vel:22000,pot:8500,pres:10,ugello:3.5,costo_puro:27.55,capannone:30,operatori:90,ammort:64},
+    {vel:30000,pot:12000,pres:12,ugello:3.5,costo_puro:33.19,capannone:30,operatori:90,ammort:64},
+    {vel:25000,pot:12000,pres:12,ugello:3.5,costo_puro:33.19,capannone:30,operatori:90,ammort:64},
+    {vel:10000,pot:15000,pres:12,ugello:3.5,costo_puro:33.19,capannone:30,operatori:90,ammort:64},
+    {vel:7500,pot:15000,pres:10,ugello:5,costo_puro:46.03,capannone:30,operatori:90,ammort:64},
+    {vel:4300,pot:15000,pres:10,ugello:5,costo_puro:46.03,capannone:30,operatori:90,ammort:64},
+    {vel:5000,pot:15000,pres:11,ugello:5,costo_puro:48.82,capannone:30,operatori:90,ammort:64},
+    {vel:1500,pot:15000,pres:11,ugello:5,costo_puro:48.82,capannone:30,operatori:90,ammort:64},
+    {vel:1200,pot:15000,pres:12,ugello:5,costo_puro:51.6,capannone:30,operatori:90,ammort:64},
+    {vel:700,pot:15000,pres:11,ugello:5,costo_puro:48.82,capannone:30,operatori:90,ammort:64},
+    {vel:300,pot:15000,pres:12,ugello:5,costo_puro:51.6,capannone:30,operatori:90,ammort:64},
+    {vel:40000,pot:6000,pres:10,ugello:2,costo_puro:30.89,capannone:30,operatori:90,ammort:64},
+    {vel:35000,pot:6500,pres:10,ugello:2,costo_puro:31.26,capannone:30,operatori:90,ammort:64},
+    {vel:23000,pot:6500,pres:11,ugello:2,costo_puro:33.27,capannone:30,operatori:90,ammort:64},
+    {vel:20000,pot:8500,pres:10,ugello:3.5,costo_puro:78.3,capannone:30,operatori:90,ammort:64},
+    {vel:17000,pot:10000,pres:10,ugello:3.5,costo_puro:79.4,capannone:30,operatori:90,ammort:64},
+    {vel:19000,pot:15000,pres:10,ugello:3.5,costo_puro:83,capannone:30,operatori:90,ammort:64},
+    {vel:14000,pot:15000,pres:10,ugello:3.5,costo_puro:83,capannone:30,operatori:90,ammort:64},
+    {vel:7000,pot:15000,pres:10,ugello:3.5,costo_puro:83,capannone:30,operatori:90,ammort:64},
+    {vel:6300,pot:15000,pres:10,ugello:3.5,costo_puro:83,capannone:30,operatori:90,ammort:64},
+    {vel:4300,pot:15000,pres:13,ugello:3.5,costo_puro:101.52,capannone:30,operatori:90,ammort:64},
+    {vel:2000,pot:15000,pres:12,ugello:5,costo_puro:160.22,capannone:30,operatori:90,ammort:64},
+    {vel:1700,pot:15000,pres:12,ugello:5,costo_puro:160.22,capannone:30,operatori:90,ammort:64},
+    {vel:1000,pot:15000,pres:12,ugello:5,costo_puro:160.22,capannone:30,operatori:90,ammort:64},
+    {vel:400,pot:15000,pres:12,ugello:5,costo_puro:160.22,capannone:30,operatori:90,ammort:64},
+    {vel:2500,pot:3000,pres:0.55,ugello:1,costo_puro:7.34,capannone:30,operatori:90,ammort:64},
+    {vel:2300,pot:3000,pres:0.5,ugello:1.2,costo_puro:7.62,capannone:30,operatori:90,ammort:64},
+    {vel:2100,pot:3500,pres:0.5,ugello:1.2,costo_puro:7.99,capannone:30,operatori:90,ammort:64},
+    {vel:1900,pot:6000,pres:0.3,ugello:1.2,costo_puro:9.6,capannone:30,operatori:90,ammort:64},
+    {vel:2000,pot:10000,pres:0.6,ugello:1.4,costo_puro:13.26,capannone:30,operatori:90,ammort:64},
+    {vel:1800,pot:10000,pres:0.6,ugello:1.6,costo_puro:13.73,capannone:30,operatori:90,ammort:64},
+    {vel:1200,pot:12000,pres:0.5,ugello:1.6,costo_puro:15.02,capannone:30,operatori:90,ammort:64},
+    {vel:900,pot:15000,pres:0.9,ugello:1.6,costo_puro:17.85,capannone:30,operatori:90,ammort:64},
+    {vel:800,pot:15000,pres:0.75,ugello:1.6,costo_puro:17.63,capannone:30,operatori:90,ammort:64},
+    {vel:400,pot:15000,pres:0.7,ugello:1.6,costo_puro:17.56,capannone:30,operatori:90,ammort:64}
+  ];
+  origFull.forEach((orig, i) => {
+    LASER_FULL[i].vel = orig.vel; LASER_FULL[i].pot = orig.pot;
+    LASER_FULL[i].pres = orig.pres; LASER_FULL[i].ugello = orig.ugello;
+    LASER_FULL[i].costo_puro = orig.costo_puro; LASER_FULL[i].capannone = orig.capannone;
+    LASER_FULL[i].operatori = orig.operatori; LASER_FULL[i].ammort = orig.ammort;
+  });
+  localStorage.removeItem('ppro_laser_full');
+  syncLaserTable();
+  renderLaserParams();
+  if (draft) { renderLaser(draft); recalc(); }
+  showToast('Tabella ripristinata ai valori originali ✓');
+}
+
+function showParamsSection(section) {
+  const all = ['labor','materials','machines','treatments','extra','piazzamento','laser_tubo','piega','saldatura'];
+  document.getElementById('params-landing').classList.toggle('hidden', !!section);
+  all.forEach(s => document.getElementById('params-'+s).classList.toggle('hidden', section !== s));
+  // laser uses different sub-id
+  document.getElementById('params-laser-sub').classList.toggle('hidden', section !== 'laser');
+  if (section === 'laser') { renderLaserParams(); showLaserTab('interno'); }
+  if (section === 'piazzamento') renderPiazzamentoRates();
+  if (section === 'labor') { renderLaborRates(); renderFilettRates(); showLaborTab('figure'); }
+  if (section === 'filettatura') renderFilettRates();
+  if (section === 'materials') renderMaterialRates();
+  if (section === 'machines') renderMachineRates();
+  if (section === 'treatments') renderTreatRates();
+  if (section === 'extra') { renderTransportRates(); renderFixedRates(); showExtraTab('transport'); }
+  
+  if (section === 'laser_tubo') { showTuboTab('interno'); }
+  if (section === 'piega') {
+    const s=document.getElementById('piegaSempliceRateInput'); if(s) s.value=PIEGA_RATE_SEMPLICE;
+    const c=document.getElementById('piegaComplessaRateInput'); if(c) c.value=PIEGA_RATE_COMPLESSA;
+  }
+  if (section === 'saldatura') { const el=document.getElementById('saldaturaRateInput'); if(el) el.value=SALDATURA_RATE; }
+}
+
+
+// DEFAULT MATERIAL RATES (€/kg)
+const MAT_UMS = ['kg','m'];
+const DEFAULT_MATERIAL_RATES = {
+  'Ferro S235 JR': {kg:0.80,m:0},
+  'Ferro S355 JR': {kg:0.95,m:0},
+  'Aisi 304':      {kg:3.20,m:0},
+  'Aisi 316':      {kg:4.50,m:0},
+  'Alluminio 6060':{kg:2.80,m:0},
+  'Alluminio 7075':{kg:5.50,m:0},
+  'Ghisa':         {kg:0.70,m:0},
+  'Ottone':        {kg:6.00,m:0},
+  'Rame':          {kg:7.50,m:0},
+  'Titanio':       {kg:35.00,m:0},
+  'Plastica':      {kg:4.20,m:0},
+  'Nylon':         {kg:3.80,m:0},
+  'Commerciale':   {kg:1.00,m:0},
+  'Altro':         {kg:0,m:0}
+};
+// Migrate old rates if present
+(function(){
+  const saved = JSON.parse(localStorage.getItem('ppro_material_rates')||'null')||{};
+  const migrated = {};
+  MATS.forEach(mat => {
+    const def = DEFAULT_MATERIAL_RATES[mat] || {kg:0};
+    const s = saved[mat];
+    if (s && typeof s === 'object') migrated[mat] = {kg: s.kg ?? 0, m: s.m ?? 0};
+    else if (s && typeof s === 'number') migrated[mat] = {kg: s, m: 0};
+    else migrated[mat] = Object.assign({}, def);
+  });
+  window._MATERIAL_RATES_INIT = migrated;
+})();
+const MATERIAL_RATES = window._MATERIAL_RATES_INIT || JSON.parse(JSON.stringify(DEFAULT_MATERIAL_RATES));
+
+function saveMaterialRates(andClose) {
+  localStorage.setItem('ppro_material_rates', JSON.stringify(MATERIAL_RATES));
+  gsSaveParametri();
+  showToast('Prezzi materiali salvati ✓');
+  if (andClose) window.close();
+}
+function renderMaterialRates() {
+  const rows = MATS.map(mat => {
+    const rates = MATERIAL_RATES[mat] || {};
+    return `<tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:10px 16px;font-size:13px;font-weight:500;white-space:nowrap;">${mat}</td>
+      <td style="padding:6px 8px;">
+        <input type="number" value="${rates.kg||0}" min="0" step="0.01"
+          style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:70px;"
+          onchange="MATERIAL_RATES['${mat}'] = Object.assign(MATERIAL_RATES['${mat}']||{}, {kg:+this.value}); saveMaterialRates()"
+          onfocus="this.select()">
+      </td>
+      <td style="padding:6px 8px;">
+        <input type="number" value="${rates.m||0}" min="0" step="0.01"
+          style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:70px;"
+          onchange="MATERIAL_RATES['${mat}'] = Object.assign(MATERIAL_RATES['${mat}']||{}, {m:+this.value}); saveMaterialRates()"
+          onfocus="this.select()">
+      </td>
+    </tr>`;
+  }).join('');
+  document.getElementById('materialRatesBody').innerHTML = `
+    <table style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="background:var(--accent-light);">
+          <th style="text-align:left;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Materiale</th>
+          <th style="text-align:center;padding:10px 8px;min-width:120px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">€/kg</th>
+          <th style="text-align:center;padding:10px 8px;min-width:120px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">€/m</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+function openMatsTable() { openParamsTab('materials'); }
+function openPiazzamentoTable() { openParamsTab('piazzamento'); }
+
+// PIAZZAMENTO RATES (€/ora)
+const DEFAULT_PIAZZAMENTO_RATES = {};
+OPS.forEach(op => { DEFAULT_PIAZZAMENTO_RATES[op] = 0; });
+(function(){
+  const saved = JSON.parse(localStorage.getItem('ppro_piazzamento_rates')||'null')||{};
+  const init = {};
+  OPS.forEach(op => { init[op] = saved[op] !== undefined ? saved[op] : (DEFAULT_PIAZZAMENTO_RATES[op]||0); });
+  window._PIAZZAMENTO_RATES_INIT = init;
+})();
+const PIAZZAMENTO_RATES = window._PIAZZAMENTO_RATES_INIT || Object.assign({}, DEFAULT_PIAZZAMENTO_RATES);
+function savePiazzamentoRates(andClose) {
+  localStorage.setItem('ppro_piazzamento_rates', JSON.stringify(PIAZZAMENTO_RATES));
+  gsSaveParametri();
+  showToast('Tariffe piazzamento salvate ✓');
+  if (andClose) window.close();
+}
+function renderPiazzamentoRates() {
+  const rows = OPS.map(op => `<tr style="border-bottom:1px solid var(--border);">
+    <td style="padding:10px 16px;font-size:13px;font-weight:500;white-space:nowrap;">${op}</td>
+    <td style="padding:6px 8px;">
+      <input type="number" value="${PIAZZAMENTO_RATES[op]||0}" min="0" step="0.5"
+        style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:70px;"
+        onchange="PIAZZAMENTO_RATES['${op}']=+this.value; savePiazzamentoRates()"
+        onfocus="this.select()">
+    </td>
+  </tr>`).join('');
+  document.getElementById('piazzamentoRatesBody').innerHTML = `
+    <table style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="background:var(--accent-light);">
+          <th style="text-align:left;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Figura</th>
+          <th style="text-align:center;padding:10px 8px;min-width:120px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">€/ora</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+
+// MACHINE RATES (€/h)
+const DEFAULT_MACHINE_RATES = {
+  'Fresatrice':    {hour:45, setup:0},
+  'Piegatrice':    {hour:35, setup:0},
+  'Saldatura MIG': {hour:40, setup:0},
+  'Saldatura TIG': {hour:50, setup:0},
+  'Tornio':        {hour:50, setup:0},
+  'Trapano':       {hour:30, setup:0},
+  'Altro':         {hour:40, setup:0}
+};
+(function(){
+  const saved = JSON.parse(localStorage.getItem('ppro_machine_rates')||'null')||{};
+  const migrated = {};
+  MCHS.forEach(m => {
+    const def = DEFAULT_MACHINE_RATES[m] || {hour:40, setup:0};
+    if (saved[m] && typeof saved[m] === 'object') migrated[m] = Object.assign({}, def, saved[m]);
+    else if (saved[m] && typeof saved[m] === 'number') migrated[m] = {hour: saved[m], setup: def.setup};
+    else migrated[m] = Object.assign({}, def);
+  });
+  window._MACHINE_RATES_INIT = migrated;
+})();
+const MACHINE_RATES = window._MACHINE_RATES_INIT || JSON.parse(JSON.stringify(DEFAULT_MACHINE_RATES));
+gsSaveParametri();
+function saveMachineRates(andClose){ localStorage.setItem('ppro_machine_rates',JSON.stringify(MACHINE_RATES)); showToast('Tariffe macchinari salvate ✓'); if (andClose) window.close(); }
+function renderMachineRates(){
+  const rows = MCHS.map(m => {
+    const r = MACHINE_RATES[m] || {};
+    return `<tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:10px 16px;font-size:13px;font-weight:500;white-space:nowrap;">${m}</td>
+      <td style="padding:6px 8px;"><input type="number" value="${r.hour||0}" min="0" step="0.5"
+        style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:70px;" onfocus="this.select()" onchange="MACHINE_RATES['${m}'] = MACHINE_RATES['${m}']||{}; MACHINE_RATES['${m}'].hour=+this.value; saveMachineRates()"></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('machineRatesBody').innerHTML = `
+    <table style="width:100%;border-collapse:collapse;">
+      <thead><tr style="background:var(--accent-light);">
+        <th style="text-align:left;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Macchinario</th>
+        <th style="text-align:center;padding:10px 8px;min-width:120px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">€/ora</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+// TREATMENT RATES (€/U.M.)
+const DEFAULT_TREAT_UMS = {'Anodizzazione':'m²','Brunitura':'kg','Cromatura':'m²','Fosfatazione':'m²','Nichelatura':'m²','Ossidazione':'m²','Pallinatura':'m²','Sabbiatura':'m²','Verniciatura':'m²','Zincatura':'kg','Altro':'pz'};
+const DEFAULT_TREAT_SETUP = {'Anodizzazione':0,'Brunitura':0,'Cromatura':0,'Fosfatazione':0,'Nichelatura':0,'Ossidazione':0,'Pallinatura':0,'Sabbiatura':0,'Verniciatura':0,'Zincatura':0,'Altro':0};
+const DEFAULT_TREAT_RATES = {'Anodizzazione':9,'Brunitura':2.5,'Cromatura':22,'Fosfatazione':5,'Nichelatura':15,'Ossidazione':8,'Pallinatura':5,'Sabbiatura':4,'Verniciatura':7,'Zincatura':1.8,'Altro':0};
+const TREAT_RATES = Object.assign({}, DEFAULT_TREAT_RATES, JSON.parse(localStorage.getItem('ppro_treat_rates')||'null')||{});
+const TREAT_UMS = Object.assign({}, DEFAULT_TREAT_UMS, JSON.parse(localStorage.getItem('ppro_treat_ums')||'null')||{});
+const TREAT_SETUP = Object.assign({}, DEFAULT_TREAT_SETUP, JSON.parse(localStorage.getItem('ppro_treat_setup')||'null')||{});
+gsSaveParametri();
+function saveTreatRates(andClose){ localStorage.setItem('ppro_treat_rates',JSON.stringify(TREAT_RATES)); localStorage.setItem('ppro_treat_ums',JSON.stringify(TREAT_UMS)); localStorage.setItem('ppro_treat_setup',JSON.stringify(TREAT_SETUP)); showToast('Tariffe trattamenti salvate ✓'); if (andClose) window.close(); }
+function renderTreatRates(){
+  document.getElementById('treatRatesBody').innerHTML = TREAT_TYPES.map(t=>`
+    <div class="params-table-row" style="grid-template-columns:1fr 90px 130px;">
+      <span>${t}</span>
+      <select style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;width:100%;" onchange="TREAT_UMS['${t}']=this.value">
+        ${['kg','m²','pz'].map(u=>`<option ${(TREAT_UMS[t]||'kg')===u?'selected':''}>${u}</option>`).join('')}
+      </select>
+      <input type="number" value="${TREAT_RATES[t]||0}" min="0" step="0.01"
+        style="padding:7px 10px;font-size:13px;border:1.5px solid var(--border);border-radius:7px;text-align:right;width:100%;" onfocus="this.select()" onchange="TREAT_RATES['${t}']=+this.value; saveTreatRates()">
+    </div>`).join('');
+}
+
+// TRANSPORT RATES
+const TRANSPORT_VEHICLES = ['Autocarro','Camion leggero','Camion pesante','Corriere','Furgone','Altro'];
+const DEFAULT_TRANSPORT_RATES = {'Furgone':{ammKm:0.35,driverRate:25},'Camion leggero':{ammKm:0.55,driverRate:28},'Camion pesante':{ammKm:0.90,driverRate:32},'Autocarro':{ammKm:1.20,driverRate:35},'Corriere':{ammKm:0.30,driverRate:22},'Altro':{ammKm:0.40,driverRate:25}};
+const TRANSPORT_RATES = JSON.parse(JSON.stringify(Object.assign({}, DEFAULT_TRANSPORT_RATES, JSON.parse(localStorage.getItem('ppro_transport_rates')||'null')||{})));
+gsSaveParametri();
+function saveTransportRates(andClose){ localStorage.setItem('ppro_transport_rates',JSON.stringify(TRANSPORT_RATES)); showToast('Tariffe trasporto salvate ✓'); ; if (andClose) window.close(); }
+function renderTransportRates(){
+  document.getElementById('transportRatesBody').innerHTML = TRANSPORT_VEHICLES.map(v=>`
+    <div class="params-table-row" style="grid-template-columns:1fr 130px 130px;">
+      <span>${v}</span>
+      <input type="number" value="${(TRANSPORT_RATES[v]||{}).ammKm||0}" min="0" step="0.01"
+        style="padding:7px 10px;font-size:13px;border:1.5px solid var(--border);border-radius:7px;text-align:right;width:100%;" onfocus="this.select()" onchange="TRANSPORT_RATES['${v}']=TRANSPORT_RATES['${v}']||{};TRANSPORT_RATES['${v}'].ammKm=+this.value; saveTransportRates()">
+      <input type="number" value="${(TRANSPORT_RATES[v]||{}).driverRate||0}" min="0" step="0.5"
+        style="padding:7px 10px;font-size:13px;border:1.5px solid var(--border);border-radius:7px;text-align:right;width:100%;" onfocus="this.select()" onchange="TRANSPORT_RATES['${v}']=TRANSPORT_RATES['${v}']||{};TRANSPORT_RATES['${v}'].driverRate=+this.value; saveTransportRates()">
+    </div>`).join('');
+}
+
+// FIXED COST RATES (€/month)
+const DEFAULT_FIXED_RATES = {'Affitto capannone':2500,'Utenze (luce/gas/acqua)':800,'Assicurazioni':300,'Leasing macchinari':1200,'Manutenzione impianti':400,'Ammortamento attrezzature':500,'Telefono / Internet':80,'Software / Licenze':150,'Smaltimento rifiuti':200,'Altro':0};
+const FIXED_RATES = Object.assign({}, DEFAULT_FIXED_RATES, JSON.parse(localStorage.getItem('ppro_fixed_rates')||'null')||{});
+gsSaveParametri();
+function saveFixedRates(andClose){ localStorage.setItem('ppro_fixed_rates',JSON.stringify(FIXED_RATES)); showToast('Costi fissi salvati ✓'); ; if (andClose) window.close(); }
+function renderFixedRates(){
+  document.getElementById('fixedRatesBody').innerHTML = FIXED_TYPES.map(t=>`
+    <div class="params-table-row" style="grid-template-columns:1fr 140px;">
+      <span>${t}</span>
+      <input type="number" value="${FIXED_RATES[t]||0}" min="0" step="10"
+        style="padding:7px 10px;font-size:13px;border:1.5px solid var(--border);border-radius:7px;text-align:right;width:100%;" onfocus="this.select()" onchange="FIXED_RATES['${t}']=+this.value">
+    </div>`).join('');
+}
+
+function saveLaborRates(andClose) {
+  localStorage.setItem('ppro_labor_rates', JSON.stringify(LABOR_RATES));
+  gsSaveParametri();
+  showToast('Tariffe manodopera salvate ✓');
+  if (andClose) window.close();
+}
+function saveLaserFull(andClose) {
+  localStorage.setItem('ppro_laser_full', JSON.stringify(LASER_FULL));
+  syncLaserTable();
+  if (draft) { renderLaser(draft); recalc(); }
+  gsSaveParametri();
+  showToast('Parametri laser salvati ✓');
+  if (andClose) window.close();
+}
+
+// LASER ESTERNO RATES (€/kg, €/m, €/pz)
+const DEFAULT_LASER_EXT_RATES = {kg:0, m:0, pz:0};
+(function(){
+  const saved = JSON.parse(localStorage.getItem('ppro_laser_ext_rates')||'null');
+  window._LASER_EXT_RATES_INIT = saved ? Object.assign({}, DEFAULT_LASER_EXT_RATES, saved) : Object.assign({}, DEFAULT_LASER_EXT_RATES);
+})();
+const LASER_EXT_RATES = window._LASER_EXT_RATES_INIT;
+function saveLaserExtRates() {
+  localStorage.setItem('ppro_laser_ext_rates', JSON.stringify(LASER_EXT_RATES));
+  gsSaveParametri();
+  showToast('Tariffe taglio esterno salvate ✓');
+}
+function renderLaserExtRates() {
+  const ums = [{key:'kg',label:'€/kg'},{key:'m',label:'€/m'},{key:'pz',label:'€/pz'}];
+  const rows = ums.map(u => `<tr style="border-bottom:1px solid var(--border);">
+    <td style="padding:10px 16px;font-size:13px;font-weight:500;white-space:nowrap;">${u.label}</td>
+    <td style="padding:6px 8px;">
+      <input type="number" value="${LASER_EXT_RATES[u.key]||0}" min="0" step="0.01"
+        style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:80px;"
+        onchange="LASER_EXT_RATES['${u.key}']=+this.value; saveLaserExtRates()"
+        onfocus="this.select()">
+    </td>
+  </tr>`).join('');
+  document.getElementById('laserExtRatesBody').innerHTML = `
+    <table style="width:100%;border-collapse:collapse;">
+      <thead><tr style="background:var(--accent-light);">
+        <th style="text-align:left;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">U.M.</th>
+        <th style="text-align:center;padding:10px 8px;min-width:120px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Prezzo</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+function showLaserTab(tab) {
+  const isInt = tab === 'interno';
+  document.getElementById('laserPanelInterno').classList.toggle('hidden', !isInt);
+  document.getElementById('laserPanelEsterno').classList.toggle('hidden', isInt);
+  document.getElementById('laserResetBtn').classList.toggle('hidden', !isInt);
+  const btnInt = document.getElementById('laserTabInt');
+  const btnExt = document.getElementById('laserTabExt');
+  btnInt.style.cssText = isInt
+    ? 'padding:7px 18px;border-radius:8px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:13px;'
+    : 'padding:7px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--text);font-weight:600;cursor:pointer;font-size:13px;';
+  btnExt.style.cssText = !isInt
+    ? 'padding:7px 18px;border-radius:8px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:13px;'
+    : 'padding:7px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--text);font-weight:600;cursor:pointer;font-size:13px;';
+  if (!isInt) renderLaserExtRates();
+  else renderLaserParams();
+}
+
+// ── TAGLIO TUBO ──
+const TUBO_CUT_TYPES = ['Taglio Tubo Interno','Taglio Tubo Esterno','Taglio Sega'];
+
+// Tubo Ext rates
+const DEFAULT_TUBO_EXT_RATES = {kg:0, m:0, pz:0};
+(function(){
+  const saved = JSON.parse(localStorage.getItem('ppro_tubo_ext_rates')||'null');
+  window._TUBO_EXT_RATES_INIT = saved ? Object.assign({}, DEFAULT_TUBO_EXT_RATES, saved) : Object.assign({}, DEFAULT_TUBO_EXT_RATES);
+})();
+const TUBO_EXT_RATES = window._TUBO_EXT_RATES_INIT;
+// Tubo Int rate (€/ora)
+(function(){ window._TUBO_INT_RATE_INIT = +(localStorage.getItem('ppro_tubo_int_rate')||0); })();
+let TUBO_INT_RATE = window._TUBO_INT_RATE_INIT;
+function saveTuboExtRates(andClose) {
+  localStorage.setItem('ppro_tubo_ext_rates', JSON.stringify(TUBO_EXT_RATES));
+  localStorage.setItem('ppro_tubo_int_rate', String(TUBO_INT_RATE));
+  gsSaveParametri();
+  showToast('Tariffe taglio tubo salvate ✓');
+  if (andClose) window.close();
+}
+function renderTuboExtRates() {
+  const ums = [{key:'kg',label:'€/kg'},{key:'m',label:'€/m'},{key:'pz',label:'€/pz'}];
+  const rows = ums.map(u => `<tr style="border-bottom:1px solid var(--border);">
+    <td style="padding:10px 16px;font-size:13px;font-weight:500;white-space:nowrap;">${u.label}</td>
+    <td style="padding:6px 8px;">
+      <input type="number" value="${TUBO_EXT_RATES[u.key]||0}" min="0" step="0.01"
+        style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:80px;"
+        onchange="TUBO_EXT_RATES['${u.key}']=+this.value; saveTuboExtRates()"
+        onfocus="this.select()">
+    </td>
+  </tr>`).join('');
+  document.getElementById('tuboExtRatesBody').innerHTML = `
+    <table style="width:100%;border-collapse:collapse;">
+      <thead><tr style="background:var(--accent-light);">
+        <th style="text-align:left;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">U.M.</th>
+        <th style="text-align:center;padding:10px 8px;min-width:120px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Prezzo</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+function showTuboTab(tab) {
+  const isInt = tab === 'interno';
+  document.getElementById('tuboPanelInterno').classList.toggle('hidden', !isInt);
+  document.getElementById('tuboPanelEsterno').classList.toggle('hidden', isInt);
+  const btnInt = document.getElementById('tuboTabInt');
+  const btnExt = document.getElementById('tuboTabExt');
+  const activeStyle = 'padding:7px 18px;border-radius:8px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:13px;';
+  const inactiveStyle = 'padding:7px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--text);font-weight:600;cursor:pointer;font-size:13px;';
+  btnInt.style.cssText = isInt ? activeStyle : inactiveStyle;
+  btnExt.style.cssText = !isInt ? activeStyle : inactiveStyle;
+  if (!isInt) renderTuboExtRates();
+  else { const el = document.getElementById('tuboIntRateInput'); if(el) el.value = TUBO_INT_RATE; }
+}
+
+function showLaborTab(tab) {
+  document.getElementById('laborPanelFigure').classList.toggle('hidden', tab !== 'figure');
+  document.getElementById('laborPanelFilett').classList.toggle('hidden', tab !== 'filettatura');
+  const on = 'padding:7px 18px;border-radius:8px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:13px;';
+  const off = 'padding:7px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--text);font-weight:600;cursor:pointer;font-size:13px;';
+  document.getElementById('laborTabFigure').style.cssText = tab === 'figure' ? on : off;
+  document.getElementById('laborTabFilett').style.cssText = tab === 'filettatura' ? on : off;
+}
+function showExtraTab(tab) {
+  const isTransport = tab === 'transport';
+  document.getElementById('extraPanelTransport').classList.toggle('hidden', !isTransport);
+  document.getElementById('extraPanelFixed').classList.toggle('hidden', isTransport);
+  const activeStyle = 'padding:7px 18px;border-radius:8px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:13px;';
+  const inactiveStyle = 'padding:7px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--text);font-weight:600;cursor:pointer;font-size:13px;';
+  document.getElementById('extraTabTransport').style.cssText = isTransport ? activeStyle : inactiveStyle;
+  document.getElementById('extraTabFixed').style.cssText = !isTransport ? activeStyle : inactiveStyle;
+  if (isTransport) renderTransportRates(); else renderFixedRates();
+}
+
+
+// Tubo row total
+function tuboRowTotal(r) {
+  if (r.tipo === 'Taglio Tubo Esterno') return (r.priceExt||0);
+  if (r.tipo === 'Taglio Tubo Interno' || r.tipo === 'Taglio Sega') return (r.minutes||0)/60 * (r.rate||0);
+  return 0;
+}
+
+// CRUD
+function addTubo() {
+  if (!draft.tubo) draft.tubo = [];
+  draft.tubo.push({id:uid(), tipo:'', um:'kg', qty:0, priceExt:0});
+  markUnsaved(); renderTubo(draft); recalc();
+}
+function delTubo(id) { draft.tubo = draft.tubo.filter(x=>x.id!==id); markUnsaved(); renderTubo(draft); recalc(); }
+function updTubo(id,f,v) {
+  if (!draft.tubo) draft.tubo=[];
+  const row = draft.tubo.find(x=>x.id===id);
+  if (!row) return;
+  row[f] = v;
+  if ((f==='um'||f==='tipo') && (row.tipo==='Taglio Tubo Esterno' || row.tipo==='Taglio Sega')) {
+    const p = TUBO_EXT_RATES[row.um||'kg'] ?? 0;
+    if (p > 0) row.priceExt = p;
+  }
+  if (f==='tipo' && (row.tipo==='Taglio Tubo Interno' || row.tipo==='Taglio Sega') && TUBO_INT_RATE > 0) {
+    row.rate = TUBO_INT_RATE;
+  }
+  markUnsaved(); renderTubo(draft); recalc();
+}
+function renderTubo(q) {
+  const rows = q.tubo || [];
+  const firstTyped = rows.find(r => r.tipo);
+  const head = document.getElementById('tuboHead');
+  const cols = document.getElementById('tuboCols');
+  if (cols) {
+    const hasAny = rows.some(r => r.tipo);
+    cols.innerHTML = hasAny
+      ? '<col style="width:auto"><col style="width:110px"><col style="width:100px"><col style="width:80px"><col style="width:36px">'
+      : '<col style="width:auto"><col style="width:80px"><col style="width:36px">';
+  }
+  if (head) {
+    const hasInt = rows.some(r => r.tipo === 'Taglio Tubo Interno' || r.tipo === 'Taglio Sega');
+    const hasExt = rows.some(r => r.tipo === 'Taglio Tubo Esterno');
+    const hasAny = rows.some(r => r.tipo);
+    if (hasAny) {
+      head.innerHTML = '<tr><th style="text-align:center">Tipo taglio</th><th style="text-align:center">' + (hasInt ? 'Tempo (min)' : '€') + '</th><th style="text-align:center">' + (hasInt ? '€/ora' : '') + '</th><th style="text-align:right">Tot.</th><th></th></tr>';
+    } else {
+      head.innerHTML = '<tr><th style="text-align:center">Tipo taglio</th><th></th></tr>';
+    }
+  }
+  document.getElementById('tuboBody').innerHTML = rows.map(r => {
+    const tipoSel = TUBO_CUT_TYPES.map(t=>`<option ${t===(r.tipo||'')?'selected':''}>${t}</option>`).join('');
+    const tot = tuboRowTotal(r);
+    if (!r.tipo) {
+      return `<tr><td colspan="5"><select style="width:100%" onchange="updTubo('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td></tr>`;
+    }
+    if (r.tipo === 'Taglio Tubo Esterno') {
+      return `<tr>
+        <td><select style="width:100%" onchange="updTubo('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td>
+        <td><input type="number" value="${r.priceExt||0}" min="0" step="0.01" style="width:100%" onfocus="this.select()" onchange="updTubo('${r.id}','priceExt',+this.value)" placeholder="€"></td>
+        <td></td>
+        <td class="tr-tot">${fmt(tot)}</td>
+        <td><button class="btn-icon" onclick="delTubo('${r.id}')">🗑</button></td>
+      </tr>`;
+    }
+    // Interno + Sega: Tempo + €/ora
+    return `<tr>
+      <td><select style="width:100%" onchange="updTubo('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td>
+      <td><input type="number" value="${r.minutes||0}" min="0" step="1" style="width:100%" onfocus="this.select()" onchange="updTubo('${r.id}','minutes',+this.value)"></td>
+      <td><input type="number" value="${r.rate||0}" min="0" step="0.5" style="width:100%" onfocus="this.select()" onchange="updTubo('${r.id}','rate',+this.value)"></td>
+      <td class="tr-tot">${fmt(tot)}</td>
+      <td><button class="btn-icon" onclick="delTubo('${r.id}')">🗑</button></td>
+    </tr>`;
+  }).join('');
+  ss('tot_tubo', fmt(rows.reduce((s,r)=>s+tuboRowTotal(r),0)));
+}
+
+// ── PIEGA ──
+(function(){
+  window._PIEGA_RATE_SEMPLICE_INIT = +(localStorage.getItem('ppro_piega_rate_semplice')||0);
+  window._PIEGA_RATE_COMPLESSA_INIT = +(localStorage.getItem('ppro_piega_rate_complessa')||0);
+})();
+let PIEGA_RATE_SEMPLICE = window._PIEGA_RATE_SEMPLICE_INIT;
+let PIEGA_RATE_COMPLESSA = window._PIEGA_RATE_COMPLESSA_INIT;
+// keep backward compat
+let PIEGA_RATE = PIEGA_RATE_SEMPLICE;
+function savePiegaRates(andClose) {
+  localStorage.setItem('ppro_piega_rate_semplice', String(PIEGA_RATE_SEMPLICE));
+  localStorage.setItem('ppro_piega_rate_complessa', String(PIEGA_RATE_COMPLESSA));
+  gsSaveParametri();
+  showToast('Tariffe piega salvate ✓');
+  if (andClose) window.close();
+}
+function piegaRowTotal(r) { if (r.tipo === "Piega Esterna") return (r.priceExt||0); return (r.minutes||0)/60 * (r.rate||0); }
+function addPiega() {
+  if (!draft.piega) draft.piega = [];
+  draft.piega.push({id:uid(), tipo:'', comp:'', minutes:0, rate:0});
+  markUnsaved(); renderPiega(draft); recalc();
+}
+function delPiega(id) { draft.piega = draft.piega.filter(x=>x.id!==id); markUnsaved(); renderPiega(draft); recalc(); }
+function updPiega(id,f,v) {
+  if (!draft.piega) draft.piega=[];
+  const row = draft.piega.find(x=>x.id===id);
+  if (!row) return;
+  row[f] = v;
+  if (f==='comp') {
+    if (v === 'Piega semplice' && PIEGA_RATE_SEMPLICE > 0) row.rate = PIEGA_RATE_SEMPLICE;
+    if (v === 'Piega complessa' && PIEGA_RATE_COMPLESSA > 0) row.rate = PIEGA_RATE_COMPLESSA;
+  }
+  markUnsaved(); renderPiega(draft); recalc();
+}
+const PIEGA_TYPES = ['Piega Interna','Piega Esterna'];
+const PIEGA_COMP = ['Piega semplice','Piega complessa'];
+function renderPiega(q) {
+  const rows = q.piega || [];
+  const head = document.getElementById('piegaHead');
+  const cols = document.getElementById('piegaCols');
+  const hasAny = rows.some(r => r.tipo);
+  const hasInt = rows.some(r => r.tipo === 'Piega Interna');
+  if (cols) {
+    cols.innerHTML = hasAny
+      ? (hasInt
+          ? '<col style="width:auto"><col style="width:auto"><col style="width:110px"><col style="width:100px"><col style="width:80px"><col style="width:36px">'
+          : '<col style="width:auto"><col style="width:110px"><col style="width:80px"><col style="width:36px">')
+      : '<col style="width:auto"><col style="width:80px"><col style="width:36px">';
+  }
+  if (head) {
+    head.innerHTML = hasAny
+      ? (hasInt
+          ? '<tr><th style="text-align:center">Piega</th><th style="text-align:center">Tipo di piega</th><th style="text-align:center">Tempo (min)</th><th style="text-align:center">€/ora</th><th style="text-align:right">Tot.</th><th></th></tr>'
+          : '<tr><th style="text-align:center">Piega</th><th style="text-align:center">€</th><th style="text-align:right">Tot.</th><th></th></tr>')
+      : '<tr><th style="text-align:center">Piega</th><th></th></tr>';
+  }
+  document.getElementById('piegaBody').innerHTML = rows.length === 0
+    ? '<tr><td colspan="6" style="text-align:center;color:var(--muted);font-size:13px;padding:12px;">Nessuna voce</td></tr>'
+    : rows.map(r => {
+      const tipoSel = PIEGA_TYPES.map(t=>`<option ${t===(r.tipo||'')?'selected':''}>${t}</option>`).join('');
+      const compSel = PIEGA_COMP.map(c=>`<option ${c===(r.comp||'')?'selected':''}>${c}</option>`).join('');
+      const tot = piegaRowTotal(r);
+      if (!r.tipo) {
+        return `<tr><td colspan="6"><select style="width:100%" onchange="updPiega('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td></tr>`;
+      }
+      if (r.tipo === 'Piega Esterna') {
+        return `<tr>
+          <td><select style="width:100%" onchange="updPiega('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td>
+          <td><input type="number" value="${r.priceExt||0}" min="0" step="0.01" style="width:100%" onfocus="this.select()" onchange="updPiega('${r.id}','priceExt',+this.value)" placeholder="€"></td>
+          <td></td>
+          <td class="tr-tot">${fmt(tot)}</td>
+          <td><button class="btn-icon" onclick="delPiega('${r.id}')">🗑</button></td>
+        </tr>`;
+      }
+      return `<tr>
+        <td><select style="width:100%" onchange="updPiega('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td>
+        <td><select style="width:100%" onchange="updPiega('${r.id}','comp',this.value)"><option value=''>— tipo di piega —</option>${compSel}</select></td>
+        <td><input type="number" value="${r.minutes||0}" min="0" step="1" style="width:100%" onfocus="this.select()" onchange="updPiega('${r.id}','minutes',+this.value)"></td>
+        <td><input type="number" value="${r.rate||0}" min="0" step="0.5" style="width:100%" onfocus="this.select()" onchange="updPiega('${r.id}','rate',+this.value)"></td>
+        <td class="tr-tot">${fmt(tot)}</td>
+        <td><button class="btn-icon" onclick="delPiega('${r.id}')">🗑</button></td>
+      </tr>`;
+    }).join('');
+  ss('tot_piega', fmt(rows.reduce((s,r)=>s+piegaRowTotal(r),0)));
+}
+
+// ── SALDATURA ──
+(function(){ window._SALDATURA_RATE_INIT = +(localStorage.getItem('ppro_saldatura_rate')||0); })();
+let SALDATURA_RATE = window._SALDATURA_RATE_INIT;
+function saveSaldaturaRates(andClose) {
+  localStorage.setItem('ppro_saldatura_rate', String(SALDATURA_RATE));
+  gsSaveParametri();
+  showToast('Tariffa saldatura salvata ✓');
+  if (andClose) window.close();
+}
+function saldaturaRowTotal(r) { if (r.tipo === 'Saldatura Esterna') return (r.priceExt||0); return (r.minutes||0)/60*(r.rate||0); }
+function addSaldatura() {
+  if (!draft.saldatura) draft.saldatura = [];
+  draft.saldatura.push({id:uid(), tipo:'', minutes:0, rate:SALDATURA_RATE||0, priceExt:0});
+  markUnsaved(); renderSaldatura(draft); recalc();
+}
+function delSaldatura(id) { draft.saldatura = draft.saldatura.filter(x=>x.id!==id); markUnsaved(); renderSaldatura(draft); recalc(); }
+function updSaldatura(id,f,v) {
+  if (!draft.saldatura) draft.saldatura=[];
+  const row = draft.saldatura.find(x=>x.id===id);
+  if (!row) return;
+  row[f] = v;
+  if (f==='tipo' && row.tipo==='Saldatura Interna' && SALDATURA_RATE > 0) row.rate = SALDATURA_RATE;
+  markUnsaved(); renderSaldatura(draft); recalc();
+}
+const SALDATURA_TYPES = ['Saldatura Interna','Saldatura Esterna'];
+function renderSaldatura(q) {
+  const rows = q.saldatura || [];
+  const head = document.getElementById('saldaturaHead');
+  const cols = document.getElementById('saldaturaCols');
+  const hasAny = rows.some(r => r.tipo);
+  if (cols) {
+    cols.innerHTML = hasAny
+      ? '<col style="width:auto"><col style="width:110px"><col style="width:100px"><col style="width:80px"><col style="width:36px">'
+      : '<col style="width:auto"><col style="width:80px"><col style="width:36px">';
+  }
+  if (head) {
+    const hasInt = rows.some(r => r.tipo === 'Saldatura Interna');
+    head.innerHTML = hasAny
+      ? '<tr><th style="text-align:center">Tipo saldatura</th><th style="text-align:center">' + (hasInt ? 'Tempo (min)' : '€') + '</th><th style="text-align:center">' + (hasInt ? '€/ora' : '') + '</th><th style="text-align:right">Tot.</th><th></th></tr>'
+      : '<tr><th style="text-align:center">Tipo saldatura</th><th></th></tr>';
+  }
+  document.getElementById('saldaturaBody').innerHTML = rows.length === 0
+    ? '<tr><td colspan="5" style="text-align:center;color:var(--muted);font-size:13px;padding:12px;">Nessuna voce</td></tr>'
+    : rows.map(r => {
+      const tipoSel = SALDATURA_TYPES.map(t=>`<option ${t===(r.tipo||'')?'selected':''}>${t}</option>`).join('');
+      const tot = saldaturaRowTotal(r);
+      if (!r.tipo) {
+        return `<tr><td colspan="5"><select style="width:100%" onchange="updSaldatura('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td></tr>`;
+      }
+      if (r.tipo === 'Saldatura Esterna') {
+        return `<tr>
+          <td><select style="width:100%" onchange="updSaldatura('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td>
+          <td><input type="number" value="${r.priceExt||0}" min="0" step="0.01" style="width:100%" onfocus="this.select()" onchange="updSaldatura('${r.id}','priceExt',+this.value)" placeholder="€"></td>
+          <td></td>
+          <td class="tr-tot">${fmt(tot)}</td>
+          <td><button class="btn-icon" onclick="delSaldatura('${r.id}')">🗑</button></td>
+        </tr>`;
+      }
+      return `<tr>
+        <td><select style="width:100%" onchange="updSaldatura('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td>
+        <td><input type="number" value="${r.minutes||0}" min="0" step="1" style="width:100%" onfocus="this.select()" onchange="updSaldatura('${r.id}','minutes',+this.value)"></td>
+        <td><input type="number" value="${r.rate||0}" min="0" step="0.5" style="width:100%" onfocus="this.select()" onchange="updSaldatura('${r.id}','rate',+this.value)"></td>
+        <td class="tr-tot">${fmt(tot)}</td>
+        <td><button class="btn-icon" onclick="delSaldatura('${r.id}')">🗑</button></td>
+      </tr>`;
+    }).join('');
+  ss('tot_saldatura', fmt(rows.reduce((s,r)=>s+saldaturaRowTotal(r),0)));
+}
+function renderFilettRates() {
+  const fasce = ['Fino a M4', 'Da M5 a M10', 'Da M12 a M36'];
+  document.getElementById('filettRatesBody').innerHTML = fasce.map(f => {
+    const r = FILETT_RATES[f] || {eurPerForo:0};
+    return `<tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:10px 16px;font-size:13px;font-weight:500;white-space:nowrap;">${f}</td>
+      <td style="padding:6px 8px;"><input type="number" value="${r.eurPerForo||0}" min="0" step="0.01"
+        style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:70px;"
+        onchange="FILETT_RATES['${f}'] = FILETT_RATES['${f}']||{}; FILETT_RATES['${f}'].eurPerForo=+this.value; saveFilettRates()"
+        onfocus="this.select()"></td>
+    </tr>`;
+  }).join('');
+}
+
+function renderLaborRates() {
+  const rows = OPS.map(op => {
+    const r = LABOR_RATES[op] || {};
+    return `<tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:10px 16px;font-size:13px;font-weight:500;white-space:nowrap;">${op}</td>
+      <td style="padding:6px 8px;"><input type="number" value="${r.cpm||0}" min="0" step="0.01"
+        style="padding:6px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:6px;text-align:right;width:100%;min-width:70px;" onchange="LABOR_RATES['${op}'] = LABOR_RATES['${op}']||{}; LABOR_RATES['${op}'].cpm=+this.value; saveLaborRates()" onfocus="this.select()"></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('laborRatesBody').innerHTML = `
+    <table style="width:100%;border-collapse:collapse;">
+      <thead><tr style="background:var(--accent-light);">
+        <th style="text-align:left;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">Figura</th>
+        <th style="text-align:center;padding:10px 8px;min-width:120px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);">€/ora</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+function goParamsPage(section) {
+  if (unsaved && !confirm('Hai modifiche non salvate. Continuare senza salvare?')) return;
+  discardChanges();
+  showPage('page-laser');
+  showParamsSection(section || null);
+  document.getElementById('breadcrumb').innerHTML = '<span class="sep">›</span><span class="crumb">Tabelle Parametri Costi</span>';
+}
+
+function goLaserTable() { goParamsPage('laser'); }
+
+
+
+function getLaserParams(mat, gas, sp) {
+  const row = LASER_TABLE.find(r => r.mat === mat && r.gas === gas && r.sp === sp);
+  return row || null;
+}
+function laserSpessori(mat, gas) {
+  return LASER_TABLE.filter(r => r.mat === mat && r.gas === gas).map(r => r.sp);
+}
+function laserGas(mat) {
+  return [...new Set(LASER_TABLE.filter(r => r.mat === mat).map(r => r.gas))];
+}
+function laserRowTotal(r) {
+  if (r.tipo === 'Taglio Laser Esterno') return (r.priceExt || 0);
+  if (r.tipo !== 'Taglio Laser Interno') { const qty=r.qty||0,price=r.priceExt||0,scrap=r.scrap||0; return qty*price*(1+scrap/100); }
+  const p = getLaserParams(r.mat, r.gas, r.sp);
+  if (!p) return r.setup || 0;
+  let mins = r.tempo || 0;
+  let mm = r.lunghezza || 0;
+  if (mm > 0 && mins === 0) mins = mm / p.vel;
+  if (mins > 0 && mm === 0) mm = mins * p.vel;
+  return mins * p.cpm + (r.setup || 0);
+}
+function updLaserExtPrice(id, mat) {
+  const row = (draft.laser||[]).find(x=>x.id===id);
+  if (row) { row.matExt = mat; row.priceExt = (MATERIAL_RATES[mat] && MATERIAL_RATES[mat].kg) || MATERIAL_RATES[mat] || 0; markUnsaved(); renderLaser(draft); recalc(); }
+}
+function addLaser() {
+  draft.laser = draft.laser || [];
+  draft.laser.push({id:uid(), desc:'', mat:'Ferro', gas:'Aria', sp:1, lunghezza:0, tempo:0, setup:0});
+  markUnsaved(); renderLaser(draft); recalc();
+}
+function delLaser(id) { draft.laser=draft.laser.filter(x=>x.id!==id); markUnsaved(); renderLaser(draft); recalc(); }
+function updLaserText(id,f,v) { (draft.laser||[]).find(x=>x.id===id)[f]=v; markUnsaved(); }
+function updLaser(id,f,v) {
+  const row = (draft.laser||[]).find(x=>x.id===id);
+  row[f] = v;
+  // reset the other dimension if mat/gas/sp changed
+  if (f==='mat') { const gases=laserGas(v); if(!gases.includes(row.gas)){row.gas=gases[0];} const sps=laserSpessori(row.mat,row.gas); if(!sps.includes(row.sp)){row.sp=sps[0];} }
+  if (f==='gas') { const sps=laserSpessori(row.mat,v); if(!sps.includes(row.sp)){row.sp=sps[0];} }
+  // auto-fill priceExt from LASER_EXT_RATES when um or tipo changes to Esterno
+  if ((f==='um' || f==='tipo') && row.tipo === 'Taglio Laser Esterno') {
+    const um = row.um || 'kg';
+    const p = LASER_EXT_RATES[um] ?? 0;
+    if (p > 0) row.priceExt = p;
+  }
+  markUnsaved(); renderLaser(draft); recalc();
+}
+function updLaserDim(id, field, val) {
+  const row = (draft.laser||[]).find(x=>x.id===id);
+  row[field] = val;
+  // auto-calculate the other dimension
+  const p = getLaserParams(row.mat, row.gas, row.sp);
+  if (p) {
+    if (field==='lunghezza' && val > 0) row.tempo = 0;
+    if (field==='tempo' && val > 0) row.lunghezza = 0;
+  }
+  markUnsaved(); renderLaser(draft); recalc();
+}
+function renderLaser(q) {
+  const rows = q.laser || [];
+  // Determine header based on first typed row
+  const firstTyped = rows.find(r => r.tipo);
+  const head = document.getElementById('laserHead');
+  const cols = document.getElementById('laserCols');
+  if (cols) {
+    const hasAny = rows.some(r => r.tipo);
+    if (hasAny) {
+      cols.innerHTML = '<col style="width:auto"><col style="width:100px"><col style="width:70px"><col style="width:100px"><col style="width:110px"><col style="width:90px"><col style="width:80px"><col style="width:36px">';
+    } else {
+      cols.innerHTML = '<col style="width:auto"><col style="width:36px">';
+    }
+  }
+  if (head) {
+    const hasInt = rows.some(r => r.tipo === 'Taglio Laser Interno');
+    const hasAny = rows.some(r => r.tipo);
+    if (hasInt) {
+      head.innerHTML = '<tr><th style="text-align:center">Tipo taglio</th><th style="text-align:center">Materiale</th><th style="text-align:center">Gas</th><th style="text-align:center">Spessore (mm)</th><th style="text-align:center">Lunghezza (mm)</th><th style="text-align:center">Tempo (min)</th><th style="text-align:right">Tot.</th><th></th></tr>';
+    } else if (hasAny) {
+      head.innerHTML = '<tr><th style="text-align:center">Tipo taglio</th><th style="text-align:center">€</th><th></th><th></th><th></th><th></th><th style="text-align:right">Tot.</th><th></th></tr>';
+    } else {
+      head.innerHTML = '<tr><th style="text-align:center">Tipo taglio</th><th></th></tr>';
+    }
+  }
+  document.getElementById('laserBody').innerHTML = rows.map(r => {
+    const tipoSel = CUT_TYPES.map(t=>`<option ${t===(r.tipo||'')?'selected':''}>${t}</option>`).join('');
+    const tot = laserRowTotal(r);
+
+    // No type selected yet — show only the tipo dropdown
+    if (!r.tipo) {
+      return `<tr>
+        <td colspan="8"><select style="width:100%" onchange="updLaser('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td>
+      </tr>`;
+    }
+
+    if (r.tipo === 'Taglio Laser Interno') {
+      // Full laser params row
+      const p = getLaserParams(r.mat, r.gas, r.sp);
+      const gases = laserGas(r.mat);
+      const sps = laserSpessori(r.mat, r.gas);
+      return `<tr>
+        <td><select style="width:100%" onchange="updLaser('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td>
+        <td><select style="width:100%" onchange="updLaser('${r.id}','mat',this.value)">
+          ${['Ferro','Alluminio','Inox'].map(m=>`<option ${m===r.mat?'selected':''}>${m}</option>`).join('')}
+        </select></td>
+        <td><select style="width:100%" onchange="updLaser('${r.id}','gas',this.value)">
+          ${gases.map(g=>`<option ${g===r.gas?'selected':''}>${g}</option>`).join('')}
+        </select></td>
+        <td><select style="width:100%" onchange="updLaser('${r.id}','sp',+this.value)">
+          ${sps.map(s=>`<option value="${s}" ${s===r.sp?'selected':''}>${s}</option>`).join('')}
+        </select></td>
+        <td><input type="number" value="${r.lunghezza||0}" min="0" step="1" style="width:100%" onfocus="this.select()" onchange="updLaserDim('${r.id}','lunghezza',+this.value)" ${r.tempo>0?'style="opacity:0.4;width:80px"':''}></td>
+        <td><input type="number" value="${r.tempo||0}" min="0" step="0.01" style="width:100%" onfocus="this.select()" onchange="updLaserDim('${r.id}','tempo',+this.value)" ${r.lunghezza>0?'style="opacity:0.4;width:72px"':''}></td>
+        <td class="tr-tot">${fmt(tot)}</td>
+        <td><button class="btn-icon" onclick="delLaser('${r.id}')">🗑</button></td>
+      </tr>`;
+    } else if (r.tipo === 'Taglio Laser Esterno') {
+      return `<tr>
+        <td><select style="width:100%" onchange="updLaser('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td>
+        <td><input type="number" value="${r.priceExt||0}" min="0" step="0.01" style="width:100%" onfocus="this.select()" onchange="updLaser('${r.id}','priceExt',+this.value)" placeholder="€"></td>
+        <td></td><td></td><td></td><td></td>
+        <td class="tr-tot">${fmt(tot)}</td>
+        <td><button class="btn-icon" onclick="delLaser('${r.id}')">🗑</button></td>
+      </tr>`;
+    } else {
+      // Other types — same fields as Taglio Laser Esterno
+      return `<tr>
+        <td><select style="width:100%" onchange="updLaser('${r.id}','tipo',this.value)"><option value=''>— seleziona —</option>${tipoSel}</select></td>
+        <td><input type="number" value="${r.qty||0}" min="0" step="0.01" style="width:100%" onfocus="this.select()" onchange="updLaser('${r.id}','qty',+this.value)"></td>
+        <td><select style="width:100%" onchange="updLaser('${r.id}','um',this.value)">
+          ${['kg','m','pz'].map(u=>`<option ${u===(r.um||'kg')?'selected':''}>${u}</option>`).join('')}
+        </select></td>
+        <td><input type="number" value="${r.priceExt||0}" min="0" step="0.01" style="width:100%" onfocus="this.select()" onchange="updLaser('${r.id}','priceExt',+this.value)"></td>
+        <td><input type="number" value="${r.scrap||0}" min="0" max="100" step="1" style="width:100%" onfocus="this.select()" onchange="updLaser('${r.id}','scrap',+this.value)"></td>
+        <td class="tr-tot">${fmt(tot)}</td>
+        <td><button class="btn-icon" onclick="delLaser('${r.id}')">🗑</button></td>
+      </tr>`;
+    }
+  }).join('');
+  ss('tot_laser', fmt(rows.reduce((s,r)=>s+laserRowTotal(r),0)));
+}
+
+// EXTRA
+// TRATTAMENTI
+const TREAT_TYPES=[
+  'Anodizzazione',
+  'Brunitura',
+  'Cromatura',
+  'Fosfatazione',
+  'Nichelatura',
+  'Ossidazione',
+  'Pallinatura',
+  'Sabbiatura',
+  'Verniciatura',
+  'Zincatura',
+  'Altro'
+];
+function addTreat(){draft.treat=draft.treat||[];draft.treat.push({id:uid(),desc:'',type:'',um:'kg',qty:0,rate:0});markUnsaved();renderTreat(draft);recalc();}
+function delTreat(id){draft.treat=draft.treat.filter(x=>x.id!==id);markUnsaved();renderTreat(draft);recalc();}
+function updTreatText(id,f,v){(draft.treat||[]).find(x=>x.id===id)[f]=v;markUnsaved();}
+function updTreat(id,f,v){
+  const row=(draft.treat||[]).find(x=>x.id===id);
+  if(f==='type'){if(TREAT_RATES[v]!==undefined)row.rate=TREAT_RATES[v];if(TREAT_UMS[v])row.um=TREAT_UMS[v];}(draft.treat||[]).find(x=>x.id===id)[f]=v;markUnsaved();renderTreat(draft);recalc();}
+function renderTreat(q){
+  document.getElementById('treatBody').innerHTML=((q.treat)||[]).map(r=>`<tr>
+    <td><select style="width:100%" onchange="updTreat('${r.id}','type',this.value)"><option value="">— seleziona —</option>${TREAT_TYPES.map(t=>`<option ${t===r.type?'selected':''}>${t}</option>`).join('')}</select></td>
+    <td><input type="text" value="${esc(r.desc)}" placeholder="Descrizione…" oninput="updTreatText('${r.id}','desc',this.value)"></td>
+    <td><select style="width:70px" onchange="updTreat('${r.id}','um',this.value)">${['kg','m²','pz'].map(u=>`<option ${r.um===u?'selected':''}>${u}</option>`).join('')}</select></td>
+    <td><input type="number" value="${r.rate||0}" min="0" step="0.01" style="width:80px" onchange="updTreat('${r.id}','rate',+this.value)" onfocus="this.select()"></td>
+    <td><input type="number" value="${r.qty||0}" min="0" step="0.01" style="width:72px" onchange="updTreat('${r.id}','qty',+this.value)" onfocus="this.select()"></td>
+    <td class="tr-tot">${fmt((r.qty||0)*(r.rate||0))}</td>
+    <td><button class="btn-icon" onclick="delTreat('${r.id}')">🗑</button></td>
+  </tr>`).join('');
+}
+
+// TRANSPORT
+function addTransport(){
+  draft.transport=draft.transport||[];
+  draft.transport.push({id:uid(),desc:'',vehicle:'',ammKm:0,km:0,driverHours:0,driverRate:0});
+  markUnsaved();renderTransport(draft);recalc();
+}
+function delTransport(id){draft.transport=draft.transport.filter(x=>x.id!==id);markUnsaved();renderTransport(draft);recalc();}
+function updTransportText(id,f,v){(draft.transport||[]).find(x=>x.id===id)[f]=v;markUnsaved();}
+function updTransport(id,f,v){const row=(draft.transport||[]).find(x=>x.id===id);row[f]=v;if(f==='vehicle'&&TRANSPORT_RATES[v]){row.ammKm=TRANSPORT_RATES[v].ammKm;row.driverRate=TRANSPORT_RATES[v].driverRate;}markUnsaved();renderTransport(draft);recalc();}
+function transportRowTotal(r){return r.ammKm*r.km + r.driverHours*r.driverRate;}
+function renderTransport(q){
+  const rows=q.transport||[];
+  document.getElementById('transportBody').innerHTML=rows.map(r=>`<tr>
+    <td><input type="text" value="${esc(r.desc)}" placeholder="es. Consegna cliente" oninput="updTransportText('${r.id}','desc',this.value)"></td>
+    <td><select onchange="updTransport('${r.id}','vehicle',this.value)"><option value="">— seleziona —</option>${TRANSPORT_VEHICLES.map(v=>`<option ${v===r.vehicle?'selected':''}>${v}</option>`).join('')}</select></td>
+    <td><input type="number" value="${r.ammKm}" min="0" step="0.01" style="width:80px" onchange="updTransport('${r.id}','ammKm',+this.value)" onfocus="this.select()"></td>
+    <td><input type="number" value="${r.km}" min="0" step="1" style="width:70px" onchange="updTransport('${r.id}','km',+this.value)" onfocus="this.select()"></td>
+    <td><input type="number" value="${r.driverHours}" min="0" step="0.25" style="width:70px" onchange="updTransport('${r.id}','driverHours',+this.value)" onfocus="this.select()"></td>
+    <td><input type="number" value="${r.driverRate}" min="0" step="0.5" style="width:80px" onchange="updTransport('${r.id}','driverRate',+this.value)" onfocus="this.select()"></td>
+    <td class="tr-tot">${fmt(transportRowTotal(r))}</td>
+    <td><button class="btn-icon" onclick="delTransport('${r.id}')">🗑</button></td>
+  </tr>`).join('');
+  const tot=rows.reduce((s,r)=>s+transportRowTotal(r),0);
+  ss('tot_transport',fmt(tot));
+}
+
+// EXTRA
+const CATS=['Collaudo / Certificazione','Imballaggio','Spese varie','Subappalto'];
+function addExtra(){draft.extra.push({id:uid(),desc:'',cat:'Imballaggio',amount:0});markUnsaved();renderExtra(draft);recalc();}
+function delExt(id){draft.extra=draft.extra.filter(x=>x.id!==id);markUnsaved();renderExtra(draft);recalc();}
+function updExtText(id,f,v){draft.extra.find(x=>x.id===id)[f]=v;markUnsaved();}
+function updExt(id,f,v){draft.extra.find(x=>x.id===id)[f]=v;markUnsaved();renderExtra(draft);recalc();}
+function renderExtra(q){
+  const rows = q.extra||[];
+  document.getElementById('extraBody').innerHTML=rows.map(r=>`<tr>
+    <td><input type="text" value="${esc(r.desc)}" placeholder="Descrizione" oninput="updExtText('${r.id}','desc',this.value)"></td>
+    <td><select onchange="updExt('${r.id}','cat',this.value)">${CATS.map(c=>`<option ${c===r.cat?'selected':''}>${c}</option>`).join('')}</select></td>
+    <td><input type="number" value="${r.amount}" min="0" step="0.01" onchange="updExt('${r.id}','amount',+this.value)" onfocus="this.select()"></td>
+    <td class="tr-tot">${fmt(r.amount)}</td>
+    <td><button class="btn-icon" onclick="delExt('${r.id}')">🗑</button></td>
+  </tr>`).join('');
+  ss('tot_altri', fmt(rows.reduce((s,r)=>s+r.amount,0)));
+}
+
+// COSTI FISSI
+const FIXED_TYPES=['Affitto capannone','Ammortamento attrezzature','Assicurazioni','Leasing macchinari','Manutenzione impianti','Smaltimento rifiuti','Software / Licenze','Telefono / Internet','Utenze (luce/gas/acqua)','Altro'];
+function addFixed(){draft.fixed=draft.fixed||[];draft.fixed.push({id:uid(),desc:'',type:'',amount:0});markUnsaved();renderFixed(draft);recalc();}
+function delFixed(id){draft.fixed=draft.fixed.filter(x=>x.id!==id);markUnsaved();renderFixed(draft);recalc();}
+function updFixedText(id,f,v){(draft.fixed||[]).find(x=>x.id===id)[f]=v;markUnsaved();}
+function updFixed(id,f,v){
+  const row=(draft.fixed||[]).find(x=>x.id===id);
+  if(f==='type'&&FIXED_RATES[v]!==undefined)row.amount=FIXED_RATES[v];(draft.fixed||[]).find(x=>x.id===id)[f]=v;markUnsaved();renderFixed(draft);recalc();}
+function renderFixed(q){
+  const rows=q.fixed||[];
+  document.getElementById('fixedBody').innerHTML=rows.map(r=>`<tr>
+    <td><input type="text" value="${esc(r.desc)}" placeholder="Descrizione" oninput="updFixedText('${r.id}','desc',this.value)"></td>
+    <td><select onchange="updFixed('${r.id}','type',this.value)"><option value="">— seleziona —</option>${FIXED_TYPES.map(t=>`<option ${t===r.type?'selected':''}>${t}</option>`).join('')}</select></td>
+    <td><input type="number" value="${r.amount}" min="0" step="0.01" onchange="updFixed('${r.id}','amount',+this.value)" onfocus="this.select()"></td>
+    <td class="tr-tot">${fmt(r.amount)}</td>
+    <td><button class="btn-icon" onclick="delFixed('${r.id}')">🗑</button></td>
+  </tr>`).join('');
+  ss('tot_fixed', fmt(rows.reduce((s,r)=>s+r.amount,0)));
+}
+
+// RECALC
+function calcTotal(q){
+  const m=(q.materials||[]).reduce((s,r)=>s+r.qty*r.price,0);
+  const pz=(q.piazzamento||[]).reduce((s,r)=>s+((r.minutes||0)/60*(r.rate||0))/((q.qty||1)>0?(q.qty||1):1),0);
+  const tb=(q.tubo||[]).reduce((s,r)=>s+tuboRowTotal(r),0);
+  const pg=(q.piega||[]).reduce((s,r)=>s+piegaRowTotal(r),0);
+  const sa=(q.saldatura||[]).reduce((s,r)=>s+saldaturaRowTotal(r),0);
+  const LINT=new Set(["Filettatura esterna","Fresatura esterna","Piegatura esterna","Tornitura esterna"]); const l=(q.labor||[]).reduce((s,r)=>{ if(LINT.has(r.op)) return s+(r.cost||0); if(r.op==="Filettatura interna") return s+filettTotal(r); return s+(r.minutes??r.hours*60??0)*r.rate*r.addetti; },0);
+  const mc=(q.machines||[]).reduce((s,r)=>s+(r.minutes!=null?r.minutes:r.hours*60)/60*r.rate,0);
+  const la=(q.laser||[]).reduce((s,r)=>s+laserRowTotal(r),0);
+  const tr=(q.treat||[]).reduce((s,r)=>s+(r.qty||0)*(r.rate||0),0);
+  const tp=(q.transport||[]).reduce((s,r)=>s+r.ammKm*r.km+r.driverHours*r.driverRate,0);
+  const e=(q.extra||[]).reduce((s,r)=>s+r.amount,0);
+  const fx=(q.fixed||[]).reduce((s,r)=>s+r.amount,0);
+  const d=m+pz+tb+pg+sa+l+mc+la+tr+tp+e+fx,ov=d*(q.overhead||0)/100,fl=d+ov,mg=fl*(q.margin||0)/100;
+  const beforeDisc=fl+mg,disc=beforeDisc*(q.discount||0)/100,pu=beforeDisc-disc;
+  const net=pu*(q.qty||1); return net;
+}
+function recalc(){
+  const q=draft; if(!q) return;
+  const qtyEl = document.getElementById('f_qty');
+  if (qtyEl) q.qty = Math.max(1, +qtyEl.value || 1);
+  const m=(q.materials||[]).reduce((s,r)=>s+r.qty*r.price,0);
+  const pz=(q.piazzamento||[]).reduce((s,r)=>s+((r.minutes||0)/60*(r.rate||0))/((q.qty||1)>0?(q.qty||1):1),0);
+  const tb=(q.tubo||[]).reduce((s,r)=>s+tuboRowTotal(r),0);
+  const pg=(q.piega||[]).reduce((s,r)=>s+piegaRowTotal(r),0);
+  const sa=(q.saldatura||[]).reduce((s,r)=>s+saldaturaRowTotal(r),0);
+  const LINT=new Set(["Filettatura esterna","Fresatura esterna","Piegatura esterna","Tornitura esterna"]); const l=(q.labor||[]).reduce((s,r)=>{ if(LINT.has(r.op)) return s+(r.cost||0); if(r.op==="Filettatura interna") return s+filettTotal(r); return s+(r.minutes??r.hours*60??0)*r.rate*r.addetti; },0);
+  const mc=(q.machines||[]).reduce((s,r)=>s+(r.minutes!=null?r.minutes:r.hours*60)/60*r.rate,0);
+  const la=(q.laser||[]).reduce((s,r)=>s+laserRowTotal(r),0);
+  const tr=(q.treat||[]).reduce((s,r)=>s+(r.qty||0)*(r.rate||0),0);
+  const tp=(q.transport||[]).reduce((s,r)=>s+r.ammKm*r.km+r.driverHours*r.driverRate,0);
+  const e=(q.extra||[]).reduce((s,r)=>s+r.amount,0);
+  const fx=(q.fixed||[]).reduce((s,r)=>s+r.amount,0);
+  const ov=+document.getElementById('f_overhead').value||0;
+  const mg=+document.getElementById('f_margin').value||0;
+  const disc=+document.getElementById('f_discount').value||0;
+  const qty=+document.getElementById('f_qty').value||1;
+  const d=m+pz+tb+pg+sa+l+mc+la+tr+tp+e+fx,ovv=d*ov/100,fl=d+ovv,mgv=fl*mg/100,beforeDisc=fl+mgv;
+  const discv=beforeDisc*disc/100,pu=beforeDisc-discv;
+  const net=pu*qty,tot=net;
+  ss('tot_materials',fmt(m));ss('tot_piazzamento',fmt(pz));ss('tot_tubo',fmt(tb));ss('tot_piega',fmt(pg));ss('tot_saldatura',fmt(sa));ss('tot_labor',fmt(l));ss('tot_machines',fmt(mc));ss('tot_treat',fmt(tr));ss('sum_transport',fmt(tp));ss('tot_extra',fmt(tp+e+fx));ss('sum_fixed',fmt(fx));
+  ss('sum_materials',fmt(m));ss('sum_labor',fmt(l));ss('sum_machines',fmt(mc));ss('sum_laser',fmt(la));ss('sum_treat',fmt(tr));ss('sum_transport',fmt(tp));ss('sum_extra',fmt(e));ss('sum_fixed',fmt(fx));
+  ss('sum_direct',fmt(d));ss('sum_overhead',fmt(ovv));ss('sum_full',fmt(fl));
+  ss('sum_margin',fmt(mgv));ss('sum_discount','- '+fmt(discv*qty));ss('qty_label',qty);ss('sum_net',fmt(net));
+  ss('sum_total',fmt(tot));ss('sum_unit',fmt(pu));
+}
+
+function toggleCard(head){
+  const body=head.nextElementSibling,ch=head.querySelector('.chevron');
+  body.classList.toggle('hidden');ch.classList.toggle('open');
+}
+function exportPDF(){window.print();}
+function fmt(n){return '€ '+(n||0).toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function ss(id,val){const el=document.getElementById(id);if(el)el.textContent=val;}
+function uid(){return Math.random().toString(36).substr(2,9);}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function escHtml(s){return esc(s);}
+
+init();
+
+// ═══════════════════════════════════════════════
+// SERVER SYNC - sostituisce localStorage per preventivi e parametri
+</script>
+</body>
